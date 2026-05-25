@@ -1,0 +1,787 @@
+/* style.css */
+:root {
+    --primary-bg: #EAE6DF;
+    /* Fondo con textura tipo concreto */
+    --accent-yellow: #FFD700;
+    --text-dark: #1A1A1A;
+    --text-light: #FFFFFF;
+    --whatsapp-green: #25D366;
+    --funnel-width: 480px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f4f4;
+    /* Fondo exterior pálido */
+    color: var(--text-dark);
+}
+
+.funnel-container {
+    max-width: var(--funnel-width);
+    margin: 0 auto;
+    background-color: var(--primary-bg);
+    /* Una textura de concreto sutil usando background-image y linear gradient */
+    background-image: linear-gradient(rgba(234, 230, 223, 0.9), rgba(234, 230, 223, 0.9)), url('https://www.transparenttextures.com/patterns/concrete-wall.png');
+    min-height: 100vh;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Typography Helpers */
+.text-center {
+    text-align: center;
+}
+
+.text-green {
+    color: var(--whatsapp-green);
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.my-2 {
+    margin: 2rem 0;
+}
+
+.section-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 2.5rem;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    margin-bottom: 0.5rem;
+}
+
+/* HERO SECTION */
+.hero-section {
+    padding-top: 2rem;
+}
+
+.main-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--text-light);
+    /* Efecto relieve en el título imitando el OVERSIZE de TikTok */
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    margin-bottom: 0px;
+    letter-spacing: 2px;
+}
+
+.sub-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    letter-spacing: 5px;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.hero-image-container {
+    width: 100%;
+    position: relative;
+    /* Extraemos margen para dar espacio porque la clase floating necesita aire superior e inferior */
+    margin: 10px 0 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Base sutil que brilla debajo del PNG para que resalte el pantalón sin fondo */
+.hero-glow-backdrop {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200, 200, 200, 0.6) 0%, rgba(200, 200, 200, 0) 70%);
+    z-index: 1;
+}
+
+.hero-img {
+    width: 90%;
+    /* Ajuste para darle margen dentro del fondo */
+    max-width: 400px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    position: relative;
+    z-index: 2;
+    /* Para que quede encima de la base brillante */
+}
+
+.floating-img {
+    animation: floating 3.5s ease-in-out infinite;
+    /* Damos una sombra pesada que asienta bien al producto, dando efecto realista */
+    filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.4));
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+        filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.4));
+    }
+
+    50% {
+        transform: translateY(-20px);
+        filter: drop-shadow(0 40px 30px rgba(0, 0, 0, 0.25));
+    }
+
+    100% {
+        transform: translateY(0);
+        filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.4));
+    }
+}
+
+/* BANNER DE OFERTAS */
+.offer-banner {
+    background-color: #000;
+    color: var(--accent-yellow);
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    font-family: 'Anton', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pack-text {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.price-text {
+    font-size: 3.5rem;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.unit-price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ccc;
+    margin-top: 5px;
+    letter-spacing: 1px;
+}
+
+/* MARQUESINA ANIMADA */
+.live-viewers {
+    background-color: #000;
+    padding: 12px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: #fff;
+    font-weight: 500;
+    border-top: 1px solid #111;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    z-index: 10;
+    position: relative;
+}
+
+.live-viewers strong {
+    color: #FFD700; /* Letras resaltadas en amarillo o rojo para contrastar con el fondo negro */
+}
+
+.pulsing-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    position: relative;
+}
+
+.pulsing-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: rgba(255, 0, 0, 0.7);
+    animation: pingDot 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes pingDot {
+    75%, 100% {
+        transform: translate(-50%, -50%) scale(2.5);
+        opacity: 0;
+    }
+}
+
+.marquee-banner {
+    background-color: var(--accent-yellow);
+    color: #000;
+    font-weight: 900;
+    padding: 10px 0;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-content {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marqueeScroll 35s linear infinite;
+    white-space: nowrap;
+}
+
+.marquee-content span {
+    padding-right: 50px;
+}
+
+@keyframes marqueeScroll {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-100%, 0);
+    }
+}
+
+.small-logo {
+    width: 130px;
+    height: auto;
+    opacity: 0.9;
+    margin: 15px auto 0 auto;
+    display: block;
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.6));
+}
+
+/* MACRO DETAILS SECTION */
+.macro-details-section {
+    padding: 3rem 15px;
+    background-color: #1a1a1a;
+    color: #fff;
+    position: relative;
+}
+
+.macro-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.macro-card {
+    background: #252525;
+    border: 1px solid #333;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    border-top: 3px solid var(--accent-yellow);
+}
+
+.macro-img {
+    width: 100%;
+    height: 400px;
+    /* placeholder altura para mostrar detalle macro */
+    object-fit: cover;
+    display: block;
+    background-color: #f0f0f0;
+    /* placeholder de carga */
+}
+
+.macro-text {
+    padding: 20px;
+}
+
+.macro-text h3 {
+    font-family: 'Anton', sans-serif;
+    color: var(--accent-yellow);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.macro-text ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.macro-text li {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    padding-left: 20px;
+    position: relative;
+    color: #ddd;
+}
+
+.macro-text li::before {
+    content: '❯';
+    position: absolute;
+    left: 0;
+    color: var(--accent-yellow);
+    font-size: 0.8rem;
+    top: 3px;
+}
+
+.macro-text strong {
+    color: #fff;
+    font-weight: 700;
+}
+
+/* CALIDAD PREMIUM */
+.premium-features-section {
+    padding: 2rem 15px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.feature-card {
+    background: #fff;
+    padding: 15px 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 4px solid var(--accent-yellow);
+    justify-content: flex-start;
+}
+
+.feature-card.full-width-card {
+    grid-column: 1 / -1;
+}
+
+.feature-card i {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    color: #111;
+}
+
+.feature-card p {
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.3;
+}
+
+/* ICONOS DE CONFIANZA */
+.trust-icons-container {
+    background-color: #fff;
+    padding: 15px 0;
+    border-top: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
+}
+
+.trust-icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.icon-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 33.33%;
+}
+
+.icon-box i {
+    font-size: 2rem;
+    color: #111;
+    margin-bottom: 8px;
+}
+
+.icon-box span {
+    font-size: 0.7rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #444;
+}
+
+/* BANNER IMAGEN COMPLETA */
+.banner-image-section {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    /* Previene el espacio vacío debajo de la imagen */
+    display: block;
+}
+
+.full-width-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* GUÍA DE TALLAS */
+.size-chart-section {
+    padding: 3rem 15px;
+    /* Fondo oscuro rústico para contrastar */
+    background-color: #7d6b5d;
+    background-image: linear-gradient(rgba(125, 107, 93, 0.9), rgba(125, 107, 93, 0.9)), url('https://www.transparenttextures.com/patterns/concrete-wall.png');
+    color: #fff;
+    text-align: center;
+}
+
+.size-subtitle {
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+}
+
+.size-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.size-table th,
+.size-table td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.size-table th {
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* TESTIMONIOS MARQUESINA (SCROLL INFINITO) */
+.testimonials-section {
+    padding: 2rem 0;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.more-clientes {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.reviews-marquee-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 10px 0;
+    background-color: #fcfcfc;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.reviews-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: scrollReviews 40s linear infinite;
+}
+
+.review-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    min-width: 250px;
+    max-width: 250px;
+    height: 350px;
+    margin: 0 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: #222;
+    flex-shrink: 0;
+}
+
+.review-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.review-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 60px 15px 15px 15px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0) 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: left;
+}
+
+.review-stars {
+    color: #FFD700;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.review-short-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+    margin: 0;
+}
+
+@keyframes scrollReviews {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.more-clientes {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.5rem;
+    margin-top: 15px;
+    color: #444;
+}
+
+/* PRUEBAS DE ENVÍOS */
+.shipping-proof {
+    margin-top: 25px;
+    padding: 0 10px;
+}
+
+.proof-img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    display: block;
+    border: 3px solid #fff;
+}
+
+/* POR QUE ELEGIRNOS */
+.why-us-section {
+    padding: 2rem 25px;
+    background: #fff;
+    border-top: 4px solid #333;
+}
+
+.why-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #222;
+}
+
+.benefits-list {
+    list-style: none;
+}
+
+.benefits-list li {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    color: #444;
+    display: flex;
+    align-items: flex-start;
+}
+
+.benefits-list i {
+    margin-right: 15px;
+    font-size: 1.2rem;
+    margin-top: 3px;
+}
+
+/* BOTON FLOTANTE INFERIOR */
+.fixed-cta {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: var(--funnel-width);
+    background-color: var(--whatsapp-green);
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.6rem;
+    text-decoration: none;
+    letter-spacing: 1px;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.fixed-cta:hover {
+    background-color: #1ea952;
+}
+
+.fixed-cta i {
+    font-size: 2rem;
+}
+
+/* RESPONSIVIDAD PARA MÓVILES (Adaptaciones de tamaño) */
+@media (max-width: 480px) {
+
+    /* Ajustes generales de la página */
+    .funnel-container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Textos principales */
+    .main-title {
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+    }
+
+    .sub-title {
+        font-size: 0.95rem;
+        letter-spacing: 3px;
+    }
+
+    /* Imagen superior */
+    .hero-img {
+        max-width: 250px;
+    }
+
+    .hero-glow-backdrop {
+        width: 220px;
+        height: 220px;
+    }
+
+    /* Banner ofertas */
+    .pack-text {
+        font-size: 1.2rem;
+    }
+
+    .price-text {
+        font-size: 2.5rem;
+    }
+
+    .live-viewers {
+        font-size: 0.85rem;
+        padding: 8px 5px;
+    }
+
+    /* Ajuste de imágenes que mostraban características o eran hero */
+    .macro-img {
+        height: 250px;
+    }
+
+    .macro-text h3 {
+        font-size: 1.2rem;
+    }
+
+    .macro-text li {
+        font-size: 0.85rem;
+    }
+
+    /* Iconos y textos de la sección premium */
+    .feature-card i {
+        font-size: 2rem;
+    }
+
+    .feature-card h3 {
+        font-size: 0.9rem;
+    }
+
+    .feature-card p {
+        font-size: 0.8rem;
+    }
+
+    /* Iconos de confianza */
+    .icon-box i {
+        font-size: 1.5rem;
+    }
+
+    .icon-box span {
+        font-size: 0.65rem;
+    }
+
+    /* Marquesina infinita reducida (el giro de fotos y testimonios) */
+    .review-card {
+        min-width: 160px;
+        max-width: 160px;
+        height: 220px;
+        margin: 0 8px;
+        border-radius: 8px;
+    }
+
+    .review-overlay {
+        padding: 30px 10px 10px 10px;
+    }
+
+    .review-stars {
+        font-size: 0.9rem;
+    }
+
+    .review-short-text {
+        font-size: 0.8rem;
+    }
+
+    .more-clientes {
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    /* Reducción dramática del logo para la versión móvil */
+    .small-logo {
+        width: 80px;
+        /* Logo más pequeño */
+        margin-top: 10px !important;
+    }
+
+    /* Ajustes tabla de tallas */
+    .size-table th,
+    .size-table td {
+        font-size: 0.9rem;
+        padding: 8px 5px;
+    }
+}

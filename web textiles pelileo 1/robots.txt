@@ -1,0 +1,30 @@
+# Robots.txt para Textiles Pelileo
+# Permite indexación por buscadores e IAs
+
+User-agent: *
+Allow: /
+
+# Permitir bots de IA específicos
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+# Archivo de información para LLMs
+# https://textilespelileo.com/llms.txt
+
+# Sitemap
+Sitemap: https://textilespelileo.com/sitemap.xml
