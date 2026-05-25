@@ -1,0 +1,13 @@
+{
+  "name": "Textiles Pelileo",
+  "short_name": "Textiles Pelileo",
+  "description": "Ropa de trabajo y uniformes industriales directo del taller en Pelileo, Ecuador.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#F5EEE1",
+  "theme_color": "#0E1B2A",
+  "lang": "es-EC",
+  "icons": [
+    { "src": "img/favicon.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
