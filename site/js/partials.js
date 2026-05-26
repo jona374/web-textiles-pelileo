@@ -14,6 +14,12 @@ TP.config = {
     email: "ventas@textilespelileo.com",
     location: "Pelileo · Barrio El Tambo, Tungurahua, Ecuador",
     site: "https://textilespelileo.com",
+    // LOGO: cuando tengas el logo del jinete, coloca el archivo en /img y pon aquí la ruta.
+    // Ej: logo: "img/logo.png" (versión oscura para fondos claros) y
+    //     logoLight: "img/logo-blanco.png" (versión blanca para el footer oscuro).
+    // Si quedan vacíos, se muestra el emblema + wordmark heritage provisional.
+    logo: "",
+    logoLight: "",
     social: {
         facebook: "https://www.facebook.com/profile.php?id=61580434762683",
         instagram: "https://www.instagram.com/textilespelileo",
@@ -50,15 +56,39 @@ TP.nav = [
         return '<a href="' + n.href + '"' + active + '>' + n.label + '</a>';
     }).join("");
 
+    /* Marca: logo real si está configurado; si no, emblema heritage + wordmark */
+    function brandHTML(light) {
+        var src = light ? c.logoLight : c.logo;
+        if (src) {
+            return '<a class="brand" href="index.html" aria-label="Textiles Pelileo - Inicio">' +
+                '<img class="brand__logo" src="' + src + '" alt="Textiles Pelileo" width="180" height="52"></a>';
+        }
+        return '<a class="brand" href="index.html" aria-label="Textiles Pelileo - Inicio">' +
+            '<span class="brand__emblem"><i class="fas fa-horse-head"></i></span>' +
+            '<span><span class="brand__name">TEXTILES PELILEO</span><br>' +
+            '<span class="brand__tag">Desde 2010 · Duradero por Naturaleza</span></span></a>';
+    }
+
+    var ecBadge = '<span class="ec-badge"><span class="ec-flag"><i class="y"></i><i class="b"></i><i class="r"></i></span> Hecho en Ecuador</span>';
+
+    /* ---------- TOPBAR ---------- */
+    var topbar = document.createElement("div");
+    topbar.className = "topbar";
+    topbar.innerHTML =
+        '<div class="container">' +
+            '<span class="topbar__tag"><span class="flag">🇪🇨</span> Ecuadorian Made. Built to Work. <span class="sep">·</span> Desde 2010</span>' +
+            '<span class="topbar__right">' +
+                '<a href="tel:+' + c.phoneIntl + '"><i class="fas fa-phone"></i> ' + c.phoneDisplay + '</a>' +
+                '<a class="wa" href="' + TP.wa(pageMsg) + '" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Cotiza ahora</a>' +
+            '</span>' +
+        '</div>';
+
     /* ---------- HEADER ---------- */
     var header = document.createElement("header");
     header.className = "site-header";
     header.innerHTML =
         '<div class="container nav">' +
-            '<a class="brand" href="index.html" aria-label="Textiles Pelileo - Inicio">' +
-                '<span class="brand__mark">TP</span>' +
-                '<span><span class="brand__name">TEXTILES PELILEO</span><br><span class="brand__tag">Ropa de trabajo · Ecuador</span></span>' +
-            '</a>' +
+            brandHTML(false) +
             '<nav class="nav__links" aria-label="Principal">' + navLinks + '</nav>' +
             '<div class="nav__cta">' +
                 '<a class="nav__phone" href="tel:+' + c.phoneIntl + '">📞 ' + c.phoneDisplay + '</a>' +
@@ -78,6 +108,7 @@ TP.nav = [
 
     document.body.insertBefore(mm, document.body.firstChild);
     document.body.insertBefore(header, document.body.firstChild);
+    document.body.insertBefore(topbar, document.body.firstChild);
 
     /* ---------- FOOTER ---------- */
     var year = new Date().getFullYear();
@@ -87,8 +118,9 @@ TP.nav = [
         '<div class="container">' +
             '<div class="footer-grid">' +
                 '<div class="footer-brand">' +
-                    '<a class="brand" href="index.html"><span class="brand__mark">TP</span><span class="brand__name">TEXTILES PELILEO</span></a>' +
+                    brandHTML(true) +
                     '<p>Fabricamos ropa de trabajo industrial directo del taller en Pelileo desde 2010. Telas Gregori y Mistral de Textiles Vicuña, tallas completas y envíos a todo Ecuador.</p>' +
+                    '<div class="mb-2">' + ecBadge + '</div>' +
                     '<div class="footer-social">' +
                         '<a href="' + c.social.facebook + '" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>' +
                         '<a href="' + c.social.instagram + '" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>' +
@@ -118,11 +150,35 @@ TP.nav = [
                 '</ul></div>' +
             '</div>' +
             '<div class="footer-bottom">' +
-                '<span>© ' + year + ' Textiles Pelileo · Todos los derechos reservados.</span>' +
+                '<span>© ' + year + ' Textiles Pelileo · Duradero por Naturaleza · Todos los derechos reservados.</span>' +
                 '<span class="made-badge">🇪🇨 Ecuadorian Made. Built to Work.</span>' +
             '</div>' +
         '</div>';
+
+    /* ---------- BANDA DE CONFIANZA (global) ---------- */
+    var trust = document.createElement("section");
+    trust.className = "trust-band";
+    trust.setAttribute("aria-label", "Garantías Textiles Pelileo");
+    trust.innerHTML =
+        '<div class="container">' +
+            '<span class="ti"><i class="fas fa-industry"></i> Directo del taller</span>' +
+            '<span class="ti"><i class="fas fa-award"></i> Telas Gregori & Mistral</span>' +
+            '<span class="ti"><i class="fas fa-truck-fast"></i> Envíos a todo Ecuador (1–3 días)</span>' +
+            '<span class="ti"><i class="fas fa-shield-halved"></i> Envío asegurado</span>' +
+            '<span class="ti"><i class="fab fa-whatsapp"></i> Cotización inmediata</span>' +
+        '</div>';
+    document.body.appendChild(trust);
     document.body.appendChild(footer);
+
+    /* ---------- GANCHO DE URGENCIA en heroes de producto ---------- */
+    var pheroActions = document.querySelector(".phero .hero__actions");
+    if (pheroActions && !pheroActions.parentNode.querySelector(".urgency")) {
+        var urg = document.createElement("p");
+        urg.className = "urgency";
+        urg.style.margin = "0 0 18px";
+        urg.innerHTML = '<i class="fas fa-bolt"></i> Respuesta inmediata por WhatsApp · cotización el mismo día';
+        pheroActions.parentNode.insertBefore(urg, pheroActions);
+    }
 
     /* ---------- FLOATING WHATSAPP ---------- */
     var waFloat = document.createElement("a");
