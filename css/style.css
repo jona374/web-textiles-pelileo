@@ -174,8 +174,9 @@ h1, h2, h3, h4, h5 {
     display: grid; place-items: center; font-size: 1.35rem; flex-shrink: 0;
     border: 1.5px solid var(--gold);
 }
-.brand__logo { height: 46px; width: auto; display: block; }
-.footer-brand .brand__logo { height: 52px; }
+.brand__logo { height: 58px; width: auto; display: block; }
+.footer-brand .brand__logo { height: 88px; margin-bottom: 6px; }
+@media (max-width: 760px) { .brand__logo { height: 46px; } }
 
 /* Sello HECHO EN ECUADOR */
 .ec-badge {
@@ -190,7 +191,16 @@ h1, h2, h3, h4, h5 {
 .ec-badge .ec-flag .b { height: 25%; background: #0A4595; }
 .ec-badge .ec-flag .r { height: 25%; background: #ED1C24; }
 
-/* Parche de cuero (motivo de marca para taglines) */
+/* Overlay del parche de cuero real (sobre imágenes de sección) */
+.patch-overlay {
+    position: absolute; left: -22px; bottom: -28px; z-index: 2;
+    width: clamp(150px, 22vw, 230px); height: auto;
+    border-radius: 14px; box-shadow: 0 18px 40px rgba(0,0,0,.35); transform: rotate(-4deg);
+    background: transparent;
+}
+@media (max-width: 760px) { .patch-overlay { left: 8px; bottom: -18px; width: 140px; } }
+
+/* Parche de cuero CSS (motivo de marca para taglines, alternativo cuando no hay imagen) */
 .leather-patch {
     display: inline-flex; flex-direction: column; align-items: center; text-align: center;
     background: linear-gradient(150deg, var(--leather-light), var(--leather) 55%, var(--leather-dark));

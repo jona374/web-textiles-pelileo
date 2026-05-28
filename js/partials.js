@@ -18,8 +18,8 @@ TP.config = {
     // Ej: logo: "img/logo.png" (versión oscura para fondos claros) y
     //     logoLight: "img/logo-blanco.png" (versión blanca para el footer oscuro).
     // Si quedan vacíos, se muestra el emblema + wordmark heritage provisional.
-    logo: "",
-    logoLight: "",
+    logo: "img/logo.webp",
+    logoLight: "img/logo-blanco.webp",
     social: {
         facebook: "https://www.facebook.com/profile.php?id=61580434762683",
         instagram: "https://www.instagram.com/textilespelileo",
