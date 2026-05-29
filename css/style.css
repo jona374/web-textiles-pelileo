@@ -222,7 +222,15 @@ h1, h2, h3, h4, h5 {
 /* Línea de urgencia / gancho */
 .urgency { display: inline-flex; align-items: center; gap: 9px; background: rgba(214,168,92,.14); border: 1px solid rgba(214,168,92,.4); color: var(--leather-dark); font-weight: 700; font-size: .86rem; padding: 9px 15px; border-radius: 50px; }
 .urgency i { color: var(--gold); }
-.bg-navy .urgency, .phero .urgency { background: rgba(214,168,92,.16); border-color: rgba(214,168,92,.5); color: var(--gold); }
+/* Sobre fondos oscuros: texto crema para alto contraste */
+.bg-navy .urgency, .phero .urgency, .hero .urgency {
+    background: rgba(214,168,92,.18);
+    border-color: rgba(214,168,92,.6);
+    color: #FBEFD8;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 14px rgba(0,0,0,.18);
+}
+.bg-navy .urgency i, .phero .urgency i, .hero .urgency i { color: var(--gold); }
 
 /* Pill de stock/disponibilidad */
 .stock { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: .85rem; }
@@ -376,11 +384,18 @@ h1, h2, h3, h4, h5 {
     border: 1px solid var(--line);
     border-radius: var(--radius);
     overflow: hidden;
-    transition: var(--t);
+    transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
     display: flex;
     flex-direction: column;
+    transform-style: preserve-3d;
+    will-change: transform;
 }
-.card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: var(--cream-dark); }
+.card:hover { box-shadow: var(--shadow); border-color: var(--cream-dark); }
+/* Tilt JS aplicado: usa --rx --ry --tz para inclinación 3D suave */
+.card.tilt { transform: perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateZ(var(--tz,0)); }
+.card.tilt .card__media img { transition: transform .4s var(--ease); }
+.card.tilt:hover .card__media img { transform: scale(1.08) translateZ(20px); }
+@media (hover: none), (max-width: 760px) { .card.tilt { transform: none !important; } }
 .card__media { position: relative; aspect-ratio: 4/3; overflow: hidden; background: var(--sand); }
 .card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
 .card:hover .card__media img { transform: scale(1.06); }
