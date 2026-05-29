@@ -23,7 +23,7 @@ TP.products = [
         name: "Pantalón Stretch",
         cat: "pantalones",
         badge: "Nueva línea", badgeClass: "badge--navy",
-        img: "img/pantalon-doblado.webp",
+        img: "img/pantalon-stretch.webp",
         blurb: "Tela stretch de alta calidad: mayor comodidad y movilidad sin perder resistencia para uso laboral intensivo.",
         meta: "Tallas 28–36 · extras 38+",
         price: "Desde $12", priceNote: "por mayor · $15 unitario",
@@ -67,11 +67,33 @@ TP.products = [
         name: "Camisetas y Buzos",
         cat: "camisetas",
         badge: "Nueva línea", badgeClass: "badge--navy",
-        img: "",
+        img: "img/camisetas-buzos.webp",
         blurb: "Camisetas y buzos en tela jersey y polo piqué. Opción con capucha y cinta reflectiva. Ideales para personalizar.",
         meta: "Tallas 36–42",
         price: "Desde $6", priceNote: "por prenda",
         msg: "Hola, me interesan las Camisetas y Buzos. ¿Me ayudan con modelos, tallas y precios?"
+    },
+    {
+        slug: "chaleco-antifluidos-azul.html",
+        name: "Chaleco Antifluidos Reflectivo",
+        cat: "chalecos",
+        badge: "Repele el agua", badgeClass: "badge--gold",
+        img: "img/chaleco-antifluidos-azul.webp",
+        blurb: "Chaleco azul marino en tela antifluidos que repele el agua, con cinta reflectiva amarilla de alta visibilidad. Ideal para personal de exteriores y seguridad.",
+        meta: "Tallas S · M · L · XL",
+        price: "Cotización", priceNote: "consulta por mayor",
+        msg: "Hola, me interesa el Chaleco Antifluidos Reflectivo Azul. ¿Me ayudan con tallas y precio?"
+    },
+    {
+        slug: "chaleco-gabardina-rojo.html",
+        name: "Chaleco Gabardina Reflectivo Rojo",
+        cat: "chalecos",
+        badge: "Alta visibilidad", badgeClass: "badge--gold",
+        img: "img/chaleco-gabardina-rojo.webp",
+        blurb: "Chaleco rojo en tela gabardina resistente, con doble cinta reflectiva amarilla. Diseñado para seguridad industrial y trabajos de alta visibilidad.",
+        meta: "Tallas S · M · L · XL",
+        price: "Cotización", priceNote: "consulta por mayor",
+        msg: "Hola, me interesa el Chaleco Gabardina Reflectivo Rojo. ¿Me ayudan con tallas y precio?"
     },
     {
         slug: "uniformes-industriales.html",
