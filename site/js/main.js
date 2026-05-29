@@ -122,6 +122,48 @@
         mo.observe(document.body, { childList: true, subtree: true });
     }
 
+    /* --- Lightbox de galería --- */
+    var zoomables = Array.prototype.slice.call(document.querySelectorAll("[data-zoom]"));
+    if (zoomables.length) {
+        var lb = document.createElement("div");
+        lb.className = "lightbox";
+        lb.innerHTML =
+            '<button class="lightbox__close" aria-label="Cerrar">✕</button>' +
+            '<button class="lightbox__nav prev" aria-label="Anterior">‹</button>' +
+            '<img src="" alt="">' +
+            '<button class="lightbox__nav next" aria-label="Siguiente">›</button>' +
+            '<div class="lightbox__count"></div>';
+        document.body.appendChild(lb);
+        var lbImg = lb.querySelector("img");
+        var lbCount = lb.querySelector(".lightbox__count");
+        var idx = 0;
+        function show(i) {
+            idx = (i + zoomables.length) % zoomables.length;
+            var src = zoomables[idx].getAttribute("data-zoom") || zoomables[idx].src;
+            lbImg.src = src;
+            lbImg.alt = zoomables[idx].alt || "";
+            lbCount.textContent = (idx + 1) + " / " + zoomables.length;
+        }
+        function open(i) { show(i); lb.classList.add("open"); document.body.style.overflow = "hidden"; }
+        function close() { lb.classList.remove("open"); document.body.style.overflow = ""; }
+        zoomables.forEach(function (el, i) {
+            el.setAttribute("role", "button");
+            el.setAttribute("tabindex", "0");
+            el.addEventListener("click", function () { open(i); });
+            el.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(i); } });
+        });
+        lb.querySelector(".lightbox__close").addEventListener("click", close);
+        lb.querySelector(".prev").addEventListener("click", function (e) { e.stopPropagation(); show(idx - 1); });
+        lb.querySelector(".next").addEventListener("click", function (e) { e.stopPropagation(); show(idx + 1); });
+        lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
+        document.addEventListener("keydown", function (e) {
+            if (!lb.classList.contains("open")) return;
+            if (e.key === "Escape") close();
+            else if (e.key === "ArrowLeft") show(idx - 1);
+            else if (e.key === "ArrowRight") show(idx + 1);
+        });
+    }
+
     /* --- Scroll reveal --- */
     var reveals = document.querySelectorAll(".reveal");
     if ("IntersectionObserver" in window && reveals.length) {

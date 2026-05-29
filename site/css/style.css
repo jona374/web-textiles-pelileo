@@ -536,7 +536,64 @@ table.price-table { width: 100%; border-collapse: collapse; background: #fff; mi
 .quote .who span { font-size: .8rem; color: var(--muted); }
 
 /* ============================================================
-   PROCESO (pasos)
+   LIGHTBOX (galería ampliable)
+   ============================================================ */
+.lightbox {
+    position: fixed; inset: 0; z-index: 1100;
+    background: rgba(10,18,30,.92); backdrop-filter: blur(6px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; visibility: hidden; transition: opacity .3s var(--ease), visibility .3s var(--ease);
+    padding: 30px;
+}
+.lightbox.open { opacity: 1; visibility: visible; }
+.lightbox img { max-width: 92vw; max-height: 85vh; border-radius: 10px; box-shadow: var(--shadow-lg); transform: scale(.96); transition: transform .3s var(--ease); }
+.lightbox.open img { transform: scale(1); }
+.lightbox__close, .lightbox__nav {
+    position: absolute; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.3);
+    color: #fff; width: 50px; height: 50px; border-radius: 50%; cursor: pointer;
+    display: grid; place-items: center; font-size: 1.3rem; transition: var(--t);
+}
+.lightbox__close:hover, .lightbox__nav:hover { background: var(--leather); border-color: var(--leather); }
+.lightbox__close { top: 22px; right: 22px; }
+.lightbox__nav { top: 50%; transform: translateY(-50%); }
+.lightbox__nav.prev { left: 22px; }
+.lightbox__nav.next { right: 22px; }
+.lightbox__count { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); color: #DCE3EC; font-size: .9rem; font-weight: 600; }
+[data-zoom] { cursor: zoom-in; }
+@media (max-width: 600px) { .lightbox__nav { width: 42px; height: 42px; } .lightbox__nav.prev { left: 8px; } .lightbox__nav.next { right: 8px; } }
+
+/* ============================================================
+   PROCESO "CÓMO SE HACE" (timeline visual)
+   ============================================================ */
+.process-line { position: relative; }
+.process-line::before {
+    content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px;
+    background: linear-gradient(var(--gold), var(--leather)); transform: translateX(-50%); opacity: .35;
+}
+.pstep { display: grid; grid-template-columns: 1fr 70px 1fr; align-items: center; gap: 18px; margin-bottom: 14px; }
+.pstep__dot {
+    width: 56px; height: 56px; border-radius: 50%; background: var(--navy-900); color: var(--gold);
+    display: grid; place-items: center; font-family: var(--font-head); font-weight: 800; font-size: 1.2rem;
+    border: 2px solid var(--gold); z-index: 1; justify-self: center;
+}
+.pstep__card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; box-shadow: var(--shadow-sm); }
+.pstep__card h3 { font-size: 1.1rem; margin-bottom: 5px; }
+.pstep__card p { color: var(--muted); font-size: .92rem; }
+.pstep:nth-child(odd) .pstep__card { grid-column: 1; text-align: right; }
+.pstep:nth-child(odd) .pstep__empty { grid-column: 3; }
+.pstep:nth-child(even) .pstep__empty { grid-column: 1; }
+.pstep:nth-child(even) .pstep__card { grid-column: 3; }
+.pstep__dot { grid-column: 2; }
+@media (max-width: 720px) {
+    .process-line::before { left: 27px; }
+    .pstep { grid-template-columns: 56px 1fr; gap: 16px; }
+    .pstep__dot { grid-column: 1 !important; }
+    .pstep__card { grid-column: 2 !important; text-align: left !important; }
+    .pstep__empty { display: none; }
+}
+
+/* ============================================================
+   LIGHTBOX (galería ampliable) — fin
    ============================================================ */
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; counter-reset: step; }
 .step { text-align: center; padding: 10px; }
