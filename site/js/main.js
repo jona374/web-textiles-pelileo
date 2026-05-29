@@ -122,6 +122,37 @@
         mo.observe(document.body, { childList: true, subtree: true });
     }
 
+    /* --- Slider antes/después --- */
+    document.querySelectorAll(".ba-slider").forEach(function (sl) {
+        var after = sl.querySelector(".ba-after");
+        var handle = sl.querySelector(".ba-handle");
+        var dragging = false;
+        function setPos(x) {
+            var r = sl.getBoundingClientRect();
+            var p = Math.max(0, Math.min(100, ((x - r.left) / r.width) * 100));
+            after.style.clipPath = "inset(0 0 0 " + p + "%)";
+            handle.style.left = p + "%";
+        }
+        function down(e) { dragging = true; sl.style.transition = "none"; setPos((e.touches ? e.touches[0].clientX : e.clientX)); }
+        function move(e) { if (!dragging) return; setPos((e.touches ? e.touches[0].clientX : e.clientX)); }
+        function up() { dragging = false; }
+        sl.addEventListener("mousedown", down);
+        sl.addEventListener("touchstart", down, { passive: true });
+        window.addEventListener("mousemove", move);
+        window.addEventListener("touchmove", move, { passive: true });
+        window.addEventListener("mouseup", up);
+        window.addEventListener("touchend", up);
+        // animación de invitación: barrido inicial
+        setTimeout(function () {
+            var r = sl.getBoundingClientRect();
+            after.style.transition = "clip-path 1.6s var(--ease)";
+            handle.style.transition = "left 1.6s var(--ease)";
+            setPos(r.left + r.width * 0.78);
+            setTimeout(function () { setPos(r.left + r.width * 0.5); }, 1700);
+            setTimeout(function () { after.style.transition = ""; handle.style.transition = ""; }, 3400);
+        }, 600);
+    });
+
     /* --- Galería de producto (thumbnails -> imagen principal) --- */
     document.querySelectorAll("[data-gallery]").forEach(function (gal) {
         var mainImg = gal.querySelector(".gallery__main img");
