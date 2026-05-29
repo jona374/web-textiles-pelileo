@@ -602,6 +602,47 @@ table.price-table { width: 100%; border-collapse: collapse; background: #fff; mi
 .step p { font-size: .88rem; color: var(--muted); }
 
 /* ============================================================
+   BOTÓN VOLVER ARRIBA
+   ============================================================ */
+.to-top {
+    position: fixed; left: 20px; bottom: 20px; z-index: 940;
+    width: 46px; height: 46px; border-radius: 50%;
+    background: var(--navy-900); color: var(--gold);
+    border: 1.5px solid var(--gold); cursor: pointer;
+    display: grid; place-items: center;
+    opacity: 0; visibility: hidden; transform: translateY(10px);
+    transition: var(--t); box-shadow: 0 6px 18px rgba(14,27,42,.25);
+}
+.to-top.show { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { background: var(--leather); color: #fff; border-color: var(--leather); transform: translateY(-2px); }
+@media (max-width: 760px) { .to-top { left: 14px; bottom: 80px; width: 42px; height: 42px; } }
+
+/* ============================================================
+   HERO SHINE (brillo sutil que cruza)
+   ============================================================ */
+.hero { position: relative; }
+.hero__inner { position: relative; z-index: 2; }
+.hero::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1;
+    background: linear-gradient(115deg, transparent 38%, rgba(255,255,255,.07) 50%, transparent 62%);
+    transform: translateX(-100%);
+    animation: hero-shine 9s ease-in-out 2s infinite;
+    mix-blend-mode: screen;
+}
+@keyframes hero-shine {
+    0%, 78%, 100% { transform: translateX(-100%); }
+    40% { transform: translateX(100%); }
+}
+@media (prefers-reduced-motion: reduce) { .hero::after { animation: none; } }
+
+/* ============================================================
+   SPLIT con imagen STICKY (scrollytelling premium)
+   ============================================================ */
+.split--sticky-media { align-items: start; }
+.split--sticky-media .split__media { position: sticky; top: 110px; }
+@media (max-width: 860px) { .split--sticky-media .split__media { position: static; } }
+
+/* ============================================================
    CTA BLOCK
    ============================================================ */
 .cta-block { background: linear-gradient(120deg, var(--navy-900), var(--navy)); color: #fff; border-radius: var(--radius); padding: 52px 40px; text-align: center; position: relative; overflow: hidden; }
