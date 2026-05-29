@@ -164,6 +164,18 @@
         });
     }
 
+    /* --- Botón volver arriba --- */
+    var toTop = document.createElement("button");
+    toTop.className = "to-top";
+    toTop.type = "button";
+    toTop.setAttribute("aria-label", "Volver arriba");
+    toTop.innerHTML = '<i class="fas fa-chevron-up"></i>';
+    document.body.appendChild(toTop);
+    toTop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+    window.addEventListener("scroll", function () {
+        toTop.classList.toggle("show", window.scrollY > 500);
+    }, { passive: true });
+
     /* --- Scroll reveal --- */
     var reveals = document.querySelectorAll(".reveal");
     if ("IntersectionObserver" in window && reveals.length) {
