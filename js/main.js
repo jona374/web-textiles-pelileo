@@ -122,6 +122,27 @@
         mo.observe(document.body, { childList: true, subtree: true });
     }
 
+    /* --- Galería de producto (thumbnails -> imagen principal) --- */
+    document.querySelectorAll("[data-gallery]").forEach(function (gal) {
+        var mainImg = gal.querySelector(".gallery__main img");
+        var thumbs = gal.querySelectorAll(".gallery__thumbs button");
+        thumbs.forEach(function (btn) {
+            btn.addEventListener("click", function () {
+                var full = btn.getAttribute("data-full");
+                var alt = btn.querySelector("img") ? btn.querySelector("img").alt : "";
+                mainImg.style.opacity = "0";
+                setTimeout(function () {
+                    mainImg.src = full;
+                    mainImg.alt = alt;
+                    mainImg.setAttribute("data-zoom", full);
+                    mainImg.style.opacity = "1";
+                }, 150);
+                thumbs.forEach(function (t) { t.classList.remove("active"); });
+                btn.classList.add("active");
+            });
+        });
+    });
+
     /* --- Lightbox de galería --- */
     var zoomables = Array.prototype.slice.call(document.querySelectorAll("[data-zoom]"));
     if (zoomables.length) {
