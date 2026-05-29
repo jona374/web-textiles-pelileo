@@ -40,6 +40,48 @@
         });
     });
 
+    /* --- Contadores que cuentan al hacerse visibles --- */
+    function countUp(el) {
+        if (el.dataset.counted === "1") return;
+        el.dataset.counted = "1";
+        var to = parseInt(el.getAttribute("data-to"), 10) || 0;
+        var suffix = el.getAttribute("data-suffix") || "";
+        var prefix = el.getAttribute("data-prefix") || "";
+        var dur = parseInt(el.getAttribute("data-dur"), 10) || 1200;
+        var start = performance.now();
+        function step(now) {
+            var p = Math.min(1, (now - start) / dur);
+            var eased = 1 - Math.pow(1 - p, 3);
+            var val = Math.round(eased * to);
+            el.textContent = prefix + val + suffix;
+            if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+    }
+    var counters = document.querySelectorAll(".count-up");
+    if ("IntersectionObserver" in window && counters.length) {
+        var co = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) { if (en.isIntersecting) { countUp(en.target); co.unobserve(en.target); } });
+        }, { threshold: 0.4 });
+        counters.forEach(function (el) { co.observe(el); });
+    }
+
+    /* --- Parallax sutil del hero (transform en imagen de fondo) --- */
+    var heroBgImg = document.querySelector(".hero__bg img");
+    if (heroBgImg && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        var ticking = false;
+        window.addEventListener("scroll", function () {
+            if (!ticking) {
+                requestAnimationFrame(function () {
+                    var y = Math.min(window.scrollY * 0.25, 120);
+                    heroBgImg.style.transform = "translate3d(0," + y + "px,0) scale(1.05)";
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+    }
+
     /* --- Scroll reveal --- */
     var reveals = document.querySelectorAll(".reveal");
     if ("IntersectionObserver" in window && reveals.length) {
