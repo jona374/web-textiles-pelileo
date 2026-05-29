@@ -148,6 +148,8 @@ TP.nav = [
                     '<li><a href="pantalon-premium-gregori.html">Pantalón Premium Gregori 14oz</a></li>' +
                     '<li><a href="pantalon-stretch.html">Pantalón Stretch</a></li>' +
                     '<li><a href="camisa-industrial-mistral.html">Camisa Industrial Mistral</a></li>' +
+                    '<li><a href="chaleco-antifluidos-azul.html">Chaleco Antifluidos Azul</a></li>' +
+                    '<li><a href="chaleco-gabardina-rojo.html">Chaleco Gabardina Rojo</a></li>' +
                     '<li><a href="camisetas-buzos.html">Camisetas y Buzos</a></li>' +
                     '<li><a href="uniformes-industriales.html">Uniformes Industriales</a></li>' +
                 '</ul></div>' +
