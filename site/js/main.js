@@ -82,6 +82,46 @@
         }, { passive: true });
     }
 
+    /* --- Tilt 3D suave en .card (solo escritorio con mouse) --- */
+    if (matchMedia("(hover: hover) and (pointer: fine)").matches && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        function bindTilt(card) {
+            card.classList.add("tilt");
+            var raf = null, hovering = false;
+            card.addEventListener("mouseenter", function () { hovering = true; card.style.transition = "transform .12s var(--ease), box-shadow .35s var(--ease)"; });
+            card.addEventListener("mousemove", function (e) {
+                if (!hovering) return;
+                var r = card.getBoundingClientRect();
+                var px = (e.clientX - r.left) / r.width - .5;
+                var py = (e.clientY - r.top) / r.height - .5;
+                if (raf) cancelAnimationFrame(raf);
+                raf = requestAnimationFrame(function () {
+                    card.style.setProperty("--ry", (px * 7) + "deg");
+                    card.style.setProperty("--rx", (-py * 7) + "deg");
+                    card.style.setProperty("--tz", "10px");
+                });
+            });
+            card.addEventListener("mouseleave", function () {
+                hovering = false;
+                card.style.transition = "transform .5s var(--ease), box-shadow .35s var(--ease)";
+                card.style.setProperty("--rx", "0deg");
+                card.style.setProperty("--ry", "0deg");
+                card.style.setProperty("--tz", "0");
+            });
+        }
+        document.querySelectorAll(".card").forEach(bindTilt);
+        // observar cards inyectadas por products.js
+        var mo = new MutationObserver(function (muts) {
+            muts.forEach(function (m) {
+                m.addedNodes.forEach(function (n) {
+                    if (n.nodeType !== 1) return;
+                    if (n.classList && n.classList.contains("card")) bindTilt(n);
+                    n.querySelectorAll && n.querySelectorAll(".card:not(.tilt)").forEach(bindTilt);
+                });
+            });
+        });
+        mo.observe(document.body, { childList: true, subtree: true });
+    }
+
     /* --- Scroll reveal --- */
     var reveals = document.querySelectorAll(".reveal");
     if ("IntersectionObserver" in window && reveals.length) {
