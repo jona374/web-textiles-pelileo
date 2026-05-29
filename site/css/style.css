@@ -509,16 +509,21 @@ table.price-table { width: 100%; border-collapse: collapse; background: #fff; mi
 /* ============================================================
    TESTIMONIOS / LOGOS (carrusel infinito)
    ============================================================ */
-.logos-marquee { overflow: hidden; position: relative; padding: 18px 0; mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
-.logos-track { display: flex; gap: 70px; width: max-content; animation: scroll-logos 35s linear infinite; align-items: center; }
+.logos-marquee { overflow: hidden; position: relative; padding: 22px 0; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.logos-track { display: flex; gap: 56px; width: max-content; animation: scroll-logos 55s linear infinite; align-items: center; will-change: transform; }
 .logos-marquee:hover .logos-track { animation-play-state: paused; }
 .logos-track img {
-    height: 72px; width: auto; max-width: 200px; object-fit: contain;
-    opacity: .92; transition: var(--t);
-    filter: drop-shadow(0 1px 2px rgba(0,0,0,.05));
+    height: 90px; width: auto; max-width: 200px; object-fit: contain;
+    flex-shrink: 0;
+    opacity: 1; transition: transform .25s var(--ease);
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,.08));
 }
-.logos-track img:hover { opacity: 1; transform: scale(1.06); }
+.logos-track img:hover { transform: scale(1.08); }
 @keyframes scroll-logos { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (max-width: 760px) {
+    .logos-track { gap: 36px; animation-duration: 45s; }
+    .logos-track img { height: 64px; max-width: 150px; }
+}
 @media (prefers-reduced-motion: reduce) { .logos-track { animation: none; } }
 
 /* (Versión estática anterior — se mantiene para compatibilidad si se usa en otra parte) */
