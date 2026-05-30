@@ -74,6 +74,28 @@ TP.products = [
         msg: "Hola, me interesan las Camisetas y Buzos. ¿Me ayudan con modelos, tallas y precios?"
     },
     {
+        slug: "camiseta-jersey.html",
+        name: "Camiseta Tela Jersey",
+        cat: "camisetas",
+        badge: "Personalizable", badgeClass: "badge--navy",
+        img: "img/camiseta-jersey.webp",
+        blurb: "Camiseta básica de cuello redondo en tela jersey: cómoda, ligera y de colores duraderos. Ideal para uniformar a tu equipo o bordar tu logo.",
+        meta: "Tallas 36–42 · varios colores",
+        price: "Desde $6", priceNote: "por prenda · +$1 reflectivo",
+        msg: "Hola, me interesa la Camiseta de Tela Jersey. ¿Me ayudan con colores, tallas y precio?"
+    },
+    {
+        slug: "buzo-pique.html",
+        name: "Buzo Polo Piqué",
+        cat: "camisetas",
+        badge: "Tela piqué", badgeClass: "badge--gold",
+        img: "img/buzo-pique.webp",
+        blurb: "Buzo en tela polo piqué premium, costuras reforzadas y acabado de calidad. Opción con capucha y reflectivo. Perfecto para dotación y personalización.",
+        meta: "Tallas 36–42",
+        price: "Desde $9", priceNote: "por prenda · +$1 reflectivo",
+        msg: "Hola, me interesa el Buzo Polo Piqué. ¿Me ayudan con tallas y precio?"
+    },
+    {
         slug: "chaleco-antifluidos-azul.html",
         name: "Chaleco Antifluidos Reflectivo",
         cat: "chalecos",
