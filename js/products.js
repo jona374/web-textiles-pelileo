@@ -90,10 +90,32 @@ TP.products = [
         cat: "camisetas",
         badge: "Tela piqué", badgeClass: "badge--gold",
         img: "img/buzo-pique.webp",
-        blurb: "Buzo en tela polo piqué premium, costuras reforzadas y acabado de calidad. Opción con capucha y reflectivo. Perfecto para dotación y personalización.",
-        meta: "Tallas 36–42",
+        blurb: "Buzo polo manga larga en tela piqué premium, cuello polo y costuras reforzadas. Varios colores. Perfecto para dotación empresarial y personalización.",
+        meta: "Tallas S · M · L · XL",
         price: "Desde $9", priceNote: "por prenda · +$1 reflectivo",
         msg: "Hola, me interesa el Buzo Polo Piqué. ¿Me ayudan con tallas y precio?"
+    },
+    {
+        slug: "camiseta-polo-pique.html",
+        name: "Camiseta Polo Piqué",
+        cat: "camisetas",
+        badge: "Tela piqué", badgeClass: "badge--gold",
+        img: "img/polo-pique.webp",
+        blurb: "Camiseta polo manga corta en tela piqué premium, cuello polo clásico y costuras reforzadas. Estilo formal y duradero. Ideal para personalizar.",
+        meta: "Tallas S · M · L · XL",
+        price: "Desde $8", priceNote: "por prenda · +$1 reflectivo",
+        msg: "Hola, me interesa la Camiseta Polo Piqué. ¿Me ayudan con tallas y precio?"
+    },
+    {
+        slug: "buzo-capucha.html",
+        name: "Buzo con Capucha",
+        cat: "camisetas",
+        badge: "Con reflectivo", badgeClass: "badge--navy",
+        img: "img/buzo-capucha.webp",
+        blurb: "Buzo manga larga con capucha en tela jersey, cinta reflectiva incluida. Cómodo y resistente, ideal para personalizar y para clima fresco.",
+        meta: "Tallas 36–42",
+        price: "Desde $9", priceNote: "por prenda · con reflectivo",
+        msg: "Hola, me interesa el Buzo con Capucha. ¿Me ayudan con tallas y precio?"
     },
     {
         slug: "chaleco-antifluidos-azul.html",
