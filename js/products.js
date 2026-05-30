@@ -114,7 +114,7 @@ TP.products = [
         img: "img/buzo-capucha.webp",
         blurb: "Buzo manga larga con capucha en tela jersey, cinta reflectiva incluida. Cómodo y resistente, ideal para personalizar y para clima fresco.",
         meta: "Tallas 36–42",
-        price: "Desde $9", priceNote: "por prenda · con reflectivo",
+        price: "Desde $11", priceNote: "por prenda · con reflectivo",
         msg: "Hola, me interesa el Buzo con Capucha. ¿Me ayudan con tallas y precio?"
     },
     {
