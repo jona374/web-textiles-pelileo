@@ -355,11 +355,11 @@ h1, h2, h3, h4, h5 {
 }
 
 /* ============================================================
-   HOME PAGE — limpiar viewport mobile (sin floats sobre el hero)
+   HOME PAGE mobile — espacio inferior para que la sticky-cta
+   no tape el contenido del hero/secciones.
    ============================================================ */
 @media (max-width: 760px) {
-    body.home-page .sticky-cta { display: none !important; }
-    body.home-page .wa-float { display: none !important; }
+    body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
 }
 
 /* ============================================================
@@ -970,7 +970,8 @@ table.price-table { width: 100%; border-collapse: collapse; background: #fff; mi
         background-image: url('../img/celular-hero-ropa-trabajo-textiles-pelileo-.webp');
         background-size: cover;
         background-position: 70% center;
-        min-height: 720px;
+        min-height: 640px;
+        align-items: flex-start;
     }
     .home-hero__overlay {
         background: linear-gradient(180deg,
@@ -979,7 +980,7 @@ table.price-table { width: 100%; border-collapse: collapse; background: #fff; mi
             rgba(10, 20, 35, .55) 65%,
             rgba(10, 20, 35, .25) 100%);
     }
-    .home-hero__container { padding: 36px 22px 44px; }
+    .home-hero__container { padding: 40px 22px 44px; }
     .home-hero__inner { max-width: 100%; }
     .home-hero__kicker { font-size: .72rem; margin-bottom: 18px; }
     .home-hero__title { font-size: clamp(1.85rem, 7.4vw, 2.35rem); margin-bottom: 18px; }
