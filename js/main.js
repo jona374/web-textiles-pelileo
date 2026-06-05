@@ -240,4 +240,17 @@
     } else {
         reveals.forEach(function (el) { el.classList.add("in"); });
     }
+
+    /* --- Sticky CTA: aparece al perder de vista los botones del hero (solo home) --- */
+    var sticky = document.querySelector(".sticky-cta");
+    var heroActions = document.querySelector(".home-hero__actions");
+    if (sticky && heroActions && "IntersectionObserver" in window) {
+        var stickyIO = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+                if (en.isIntersecting) sticky.classList.remove("is-visible");
+                else sticky.classList.add("is-visible");
+            });
+        }, { threshold: 0, rootMargin: "0px 0px -40px 0px" });
+        stickyIO.observe(heroActions);
+    }
 })();
