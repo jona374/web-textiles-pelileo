@@ -176,7 +176,7 @@ h1, h2, h3, h4, h5 {
 }
 .brand__logo { height: 56px; width: auto; display: block; }
 .footer-brand .brand__logo { height: 88px; margin-bottom: 6px; }
-@media (max-width: 760px) { .brand__logo { height: 48px; } }
+@media (max-width: 760px) { .brand__logo { height: 58px; } }
 
 /* Sello HECHO EN ECUADOR */
 .ec-badge {
@@ -351,6 +351,7 @@ h1, h2, h3, h4, h5 {
     .nav__links, .nav__phone { display: none; }
     .burger { display: flex; }
     .nav__cta .btn { padding: 11px 18px; font-size: .9rem; }
+    .nav__cta .btn--wa { display: none; }
 }
 
 /* ============================================================
