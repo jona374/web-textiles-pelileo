@@ -956,6 +956,12 @@ table.price-table { width: 100%; border-collapse: collapse; background: #fff; mi
     .home-hero__container { padding: 48px 32px; }
     .home-hero__inner { max-width: 520px; }
 }
+@media (max-width: 768px) {
+    .home-hero {
+        background-image: url('../img/celular-hero-ropa-trabajo-textiles-pelileo-.webp');
+        background-position: center top;
+    }
+}
 @media (max-width: 760px) {
     .home-hero {
         min-height: 600px;
