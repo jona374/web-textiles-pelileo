@@ -30,8 +30,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Slab:wght@500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css?v=1780638089">
-    <script src="js/pixels.js?v=1780638089"></script>
+    <link rel="stylesheet" href="css/style.css?v=1780665154">
+    <script src="js/pixels.js?v=1780665154"></script>
 
     <script type="application/ld+json">
     {
@@ -77,22 +77,21 @@
 <body data-wa-msg="Hola, me interesa la ropa de trabajo de Textiles Pelileo. ¿Me ayudan con disponibilidad, tallas y cotización?">
 
     <!-- HERO -->
-    <section class="hero">
-        <div class="hero__bg"><img src="img/hero-portada.webp" alt="Ropa de trabajo industrial Textiles Pelileo" fetchpriority="high" width="1600" height="900"></div>
-        <div class="container">
-            <div class="hero__inner">
-                <span class="kicker">Hecho en Ecuador · Desde 2010</span>
-                <h1>Ropa de trabajo <span class="accent">construida para durar</span></h1>
-                <p class="hero__lead">Fabricamos pantalones, camisas y uniformes industriales directo del taller en Pelileo. Telas Gregori y Mistral de Textiles Vicuña, tallas completas y calidad que aguanta el trabajo pesado.</p>
-                <div class="hero__badges">
-                    <span class="pill"><i class="fas fa-industry"></i> Directo del taller</span>
-                    <span class="pill"><i class="fas fa-award"></i> Telas certificadas</span>
-                    <span class="pill"><i class="fas fa-truck-fast"></i> Envíos a todo Ecuador</span>
-                </div>
-                <p class="urgency" style="margin-bottom:20px"><i class="fas fa-bolt"></i> Cotización inmediata por WhatsApp · atención directa del taller hoy mismo</p>
-                <div class="hero__actions">
-                    <a class="btn btn--wa btn--lg" href="#" data-wa target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</a>
-                    <a class="btn btn--ghost-light btn--lg" href="productos.html">Ver catálogo</a>
+    <section class="home-hero">
+        <div class="home-hero__overlay"></div>
+        <div class="home-hero__container">
+            <div class="home-hero__inner">
+                <span class="home-hero__kicker">Hecho en Ecuador · Desde 2010</span>
+                <h1 class="home-hero__title">Ropa de trabajo<br><span class="home-hero__title-accent">construida para durar</span></h1>
+                <p class="home-hero__lead">Fabricación directa desde nuestro taller en Pelileo, Ecuador. Calidad, resistencia y cumplimiento para empresas e industrias.</p>
+                <ul class="home-hero__benefits">
+                    <li><i class="fas fa-shield-halved"></i><span>Resistentes y duraderos</span></li>
+                    <li><i class="fas fa-industry"></i><span>Fabricación directa</span></li>
+                    <li><i class="fas fa-people-group"></i><span>Atención a empresas e industrias</span></li>
+                </ul>
+                <div class="home-hero__actions">
+                    <a class="home-hero__btn home-hero__btn--primary" href="#" data-wa target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</a>
+                    <a class="home-hero__btn home-hero__btn--ghost" href="productos.html">Ver catálogo completo <span aria-hidden="true">→</span></a>
                 </div>
             </div>
         </div>
@@ -310,9 +309,9 @@
         </div>
     </section>
 
-    <script src="js/partials.js?v=1780638089"></script>
-    <script src="js/products.js?v=1780638089"></script>
-    <script src="js/main.js?v=1780638089"></script>
+    <script src="js/partials.js?v=1780665154"></script>
+    <script src="js/products.js?v=1780665154"></script>
+    <script src="js/main.js?v=1780665154"></script>
     <script>
         TP.renderProducts("#featured-grid", { only: ["pantalon-premium-gregori.html", "camisa-industrial-mistral.html", "uniformes-industriales.html"] });
         document.querySelectorAll("[data-wa]").forEach(function (a) { a.href = TP.wa(document.body.getAttribute("data-wa-msg")); });

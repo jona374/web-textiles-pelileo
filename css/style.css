@@ -852,3 +852,128 @@ table.price-table { width: 100%; border-collapse: collapse; background: #fff; mi
     .grid--4 { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 480px) { .grid--4 { grid-template-columns: 1fr; } .steps { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   HERO HOME REDESIGN (solo aplica al index.html · .home-hero*)
+   No modifica el resto de páginas ni el sistema global.
+   ============================================================ */
+.home-hero {
+    position: relative;
+    min-height: 720px;
+    background-image: url('../img/hero-ropa-trabajo-textiles-pelileo.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-color: #0E1B2A;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.home-hero__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg,
+        rgba(10, 20, 35, .92) 0%,
+        rgba(10, 20, 35, .80) 35%,
+        rgba(10, 20, 35, .45) 60%,
+        rgba(10, 20, 35, .10) 90%,
+        rgba(10, 20, 35, 0) 100%);
+    pointer-events: none;
+}
+.home-hero__container {
+    position: relative; z-index: 1;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 60px 48px;
+}
+.home-hero__inner { max-width: 580px; color: #fff; }
+.home-hero__kicker {
+    display: inline-flex; align-items: center;
+    font-weight: 700; font-size: .78rem;
+    letter-spacing: .18em; text-transform: uppercase;
+    color: #F08A2E; margin-bottom: 22px;
+}
+.home-hero__kicker::before {
+    content: ""; width: 28px; height: 2px;
+    background: #F08A2E; margin-right: 12px;
+}
+.home-hero__title {
+    font-family: var(--font-head);
+    font-size: clamp(2rem, 4.8vw, 3.4rem);
+    font-weight: 800; line-height: 1.08;
+    color: #fff; margin: 0 0 22px;
+    letter-spacing: -.01em;
+}
+.home-hero__title-accent { color: #fff; }
+.home-hero__lead {
+    font-size: 1.08rem; line-height: 1.6;
+    color: #D6DCE5; max-width: 520px;
+    margin: 0 0 30px;
+}
+.home-hero__benefits {
+    list-style: none; padding: 0; margin: 0 0 34px;
+    display: flex; flex-wrap: wrap; gap: 22px 32px;
+}
+.home-hero__benefits li {
+    display: inline-flex; align-items: center;
+    gap: 12px; color: #fff; font-weight: 600; font-size: .98rem;
+}
+.home-hero__benefits i {
+    width: 38px; height: 38px;
+    border: 1.5px solid #F08A2E; border-radius: 8px;
+    display: inline-grid; place-items: center;
+    color: #F08A2E; font-size: 1rem; flex-shrink: 0;
+}
+.home-hero__actions {
+    display: flex; flex-wrap: wrap; gap: 14px;
+}
+.home-hero__btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 10px; padding: 16px 28px;
+    font-family: var(--font-body); font-weight: 700; font-size: 1rem;
+    border-radius: 8px; border: 2px solid transparent;
+    line-height: 1; cursor: pointer; text-decoration: none;
+    transition: all .25s cubic-bezier(.4,0,.2,1);
+}
+.home-hero__btn i { font-size: 1.15rem; }
+.home-hero__btn--primary {
+    background: #F08A2E; color: #fff;
+    box-shadow: 0 8px 24px rgba(240, 138, 46, .35);
+}
+.home-hero__btn--primary:hover {
+    background: #D97613; transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(240, 138, 46, .5);
+}
+.home-hero__btn--ghost {
+    background: transparent; color: #fff;
+    border-color: rgba(255,255,255,.55);
+}
+.home-hero__btn--ghost:hover {
+    background: rgba(255,255,255,.08); border-color: #fff;
+}
+@media (max-width: 1024px) {
+    .home-hero { min-height: 620px; }
+    .home-hero__container { padding: 48px 32px; }
+    .home-hero__inner { max-width: 520px; }
+}
+@media (max-width: 760px) {
+    .home-hero {
+        min-height: 600px;
+        background-position: 62% center;
+    }
+    .home-hero__overlay {
+        background: linear-gradient(180deg,
+            rgba(10, 20, 35, .85) 0%,
+            rgba(10, 20, 35, .78) 60%,
+            rgba(10, 20, 35, .65) 100%);
+    }
+    .home-hero__container { padding: 40px 22px; }
+    .home-hero__inner { max-width: 100%; }
+    .home-hero__title { font-size: clamp(1.7rem, 7.2vw, 2.2rem); }
+    .home-hero__lead { font-size: 1rem; }
+    .home-hero__benefits { gap: 14px 20px; margin-bottom: 28px; }
+    .home-hero__benefits li { font-size: .92rem; }
+    .home-hero__benefits i { width: 34px; height: 34px; }
+    .home-hero__actions { flex-direction: column; align-items: stretch; }
+    .home-hero__btn { width: 100%; padding: 15px 22px; }
+}
