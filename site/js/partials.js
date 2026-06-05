@@ -18,7 +18,7 @@ TP.config = {
     // Ej: logo: "img/logo.png" (versión oscura para fondos claros) y
     //     logoLight: "img/logo-blanco.png" (versión blanca para el footer oscuro).
     // Si quedan vacíos, se muestra el emblema + wordmark heritage provisional.
-    logo: "img/logo.webp",
+    logo: "img/logo-textiles-pelileo.webp",
     logoLight: "img/logo-blanco.webp",
     social: {
         facebook: "https://www.facebook.com/profile.php?id=61580434762683",
@@ -109,7 +109,7 @@ TP.nav = [
         var src = light ? c.logoLight : c.logo;
         if (src) {
             return '<a class="brand" href="index.html" aria-label="Textiles Pelileo - Inicio">' +
-                '<img class="brand__logo" src="' + src + '" alt="Textiles Pelileo" width="180" height="52"></a>';
+                '<img class="brand__logo" src="' + src + '" alt="Textiles Pelileo" width="240" height="118"></a>';
         }
         return '<a class="brand" href="index.html" aria-label="Textiles Pelileo - Inicio">' +
             '<span class="brand__emblem"><i class="fas fa-horse-head"></i></span>' +
@@ -124,7 +124,7 @@ TP.nav = [
     topbar.className = "topbar";
     topbar.innerHTML =
         '<div class="container">' +
-            '<span class="topbar__tag"><span class="flag">🇪🇨</span> Ecuadorian Made. Built to Work. <span class="sep">·</span> Desde 2010</span>' +
+            '<span class="topbar__tag"><span class="flag">🇪🇨</span> Hecho en Ecuador <span class="sep">·</span> Desde 2010</span>' +
             '<span class="topbar__right">' +
                 '<a href="tel:+' + c.phoneIntl + '"><i class="fas fa-phone"></i> ' + c.phoneDisplay + '</a>' +
                 '<a class="wa" href="' + TP.wa(pageMsg) + '" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Cotiza ahora</a>' +
