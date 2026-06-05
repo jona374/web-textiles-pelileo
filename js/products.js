@@ -12,7 +12,7 @@ TP.products = [
         name: "Pantalón Premium Gregori 14oz",
         cat: "pantalones",
         badge: "Top ventas", badgeClass: "badge--gold",
-        img: "",
+        img: "img/galeria/p14-1.webp",
         blurb: "Tela Gregori 14oz 100% algodón de Textiles Vicuña. Triple costura, herrajes inoxidables y color que no destiñe.",
         meta: "Tallas 28–38 en stock · 26–46 bajo pedido",
         price: "Desde $12", priceNote: "por mayor · $15 unitario",
