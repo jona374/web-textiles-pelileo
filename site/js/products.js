@@ -67,7 +67,7 @@ TP.products = [
         name: "Camisetas y Buzos",
         cat: "camisetas",
         badge: "Nueva línea", badgeClass: "badge--navy",
-        img: "img/camisetas-buzos.webp",
+        img: "img/galeria/buzojersey-1.webp",
         blurb: "Camisetas y buzos en tela jersey y polo piqué. Opción con capucha y cinta reflectiva. Ideales para personalizar.",
         meta: "Tallas 36–42",
         price: "Desde $6", priceNote: "por prenda",
