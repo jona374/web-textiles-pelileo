@@ -824,9 +824,22 @@ table.price-table { width: 100%; border-collapse: collapse; background: #fff; mi
 .sticky-cta .btn { flex: 1; padding: 14px; }
 .sticky-cta .btn--call { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.3); color: #fff; }
 @media (max-width: 760px) {
-    .sticky-cta { display: flex; }
-    .wa-float { bottom: 80px; width: 54px; height: 54px; }
-    body { padding-bottom: 70px; }
+    .sticky-cta {
+        display: flex;
+        transform: translateY(110%);
+        opacity: 0;
+        transition: transform .3s var(--ease), opacity .3s var(--ease);
+        pointer-events: none;
+    }
+    .sticky-cta.is-visible {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .wa-float { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .sticky-cta { transition: none; }
 }
 
 /* ============================================================
@@ -980,23 +993,23 @@ table.price-table { width: 100%; border-collapse: collapse; background: #fff; mi
             rgba(10, 20, 35, .55) 65%,
             rgba(10, 20, 35, .25) 100%);
     }
-    .home-hero__container { padding: 40px 22px 44px; }
+    .home-hero__container { padding: 32px 22px 36px; }
     .home-hero__inner { max-width: 100%; }
-    .home-hero__kicker { font-size: .72rem; margin-bottom: 18px; }
-    .home-hero__title { font-size: clamp(1.85rem, 7.4vw, 2.35rem); margin-bottom: 18px; }
-    .home-hero__lead { font-size: 1rem; line-height: 1.55; margin-bottom: 26px; max-width: 100%; }
+    .home-hero__kicker { font-size: .72rem; margin-bottom: 14px; }
+    .home-hero__title { font-size: clamp(1.85rem, 7.4vw, 2.35rem); margin-bottom: 14px; }
+    .home-hero__lead { font-size: 1rem; line-height: 1.5; margin-bottom: 20px; max-width: 100%; }
     .home-hero__benefits {
         flex-direction: column; gap: 0;
-        margin-bottom: 30px;
+        margin-bottom: 22px;
         border-top: 1px solid rgba(255,255,255,.08);
     }
     .home-hero__benefits li {
         font-size: .98rem;
-        padding: 14px 0;
+        padding: 11px 0;
         border-bottom: 1px solid rgba(255,255,255,.08);
         width: 100%;
     }
-    .home-hero__benefits i { width: 40px; height: 40px; font-size: 1.05rem; }
-    .home-hero__actions { flex-direction: column; align-items: stretch; gap: 12px; }
-    .home-hero__btn { width: 100%; padding: 16px 22px; font-size: 1rem; }
+    .home-hero__benefits i { width: 38px; height: 38px; font-size: 1.05rem; }
+    .home-hero__actions { flex-direction: column; align-items: stretch; gap: 10px; }
+    .home-hero__btn { width: 100%; padding: 15px 22px; font-size: 1rem; }
 }
