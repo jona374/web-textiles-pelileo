@@ -351,7 +351,15 @@ h1, h2, h3, h4, h5 {
     .nav__links, .nav__phone { display: none; }
     .burger { display: flex; }
     .nav__cta .btn { padding: 11px 18px; font-size: .9rem; }
-    .nav__cta .btn--wa { display: none; }
+    .nav__cta .btn--wa { display: none !important; }
+}
+
+/* ============================================================
+   HOME PAGE — limpiar viewport mobile (sin floats sobre el hero)
+   ============================================================ */
+@media (max-width: 760px) {
+    body.home-page .sticky-cta { display: none !important; }
+    body.home-page .wa-float { display: none !important; }
 }
 
 /* ============================================================
@@ -960,27 +968,34 @@ table.price-table { width: 100%; border-collapse: collapse; background: #fff; mi
 @media (max-width: 768px) {
     .home-hero {
         background-image: url('../img/celular-hero-ropa-trabajo-textiles-pelileo-.webp');
-        background-position: center top;
-    }
-}
-@media (max-width: 760px) {
-    .home-hero {
-        min-height: 600px;
-        background-position: 62% center;
+        background-size: cover;
+        background-position: 70% center;
+        min-height: 720px;
     }
     .home-hero__overlay {
         background: linear-gradient(180deg,
-            rgba(10, 20, 35, .85) 0%,
-            rgba(10, 20, 35, .78) 60%,
-            rgba(10, 20, 35, .65) 100%);
+            rgba(10, 20, 35, .92) 0%,
+            rgba(10, 20, 35, .80) 35%,
+            rgba(10, 20, 35, .55) 65%,
+            rgba(10, 20, 35, .25) 100%);
     }
-    .home-hero__container { padding: 40px 22px; }
+    .home-hero__container { padding: 36px 22px 44px; }
     .home-hero__inner { max-width: 100%; }
-    .home-hero__title { font-size: clamp(1.7rem, 7.2vw, 2.2rem); }
-    .home-hero__lead { font-size: 1rem; }
-    .home-hero__benefits { flex-direction: column; gap: 14px; margin-bottom: 28px; }
-    .home-hero__benefits li { font-size: .98rem; }
-    .home-hero__benefits i { width: 36px; height: 36px; }
-    .home-hero__actions { flex-direction: column; align-items: stretch; }
-    .home-hero__btn { width: 100%; padding: 15px 22px; }
+    .home-hero__kicker { font-size: .72rem; margin-bottom: 18px; }
+    .home-hero__title { font-size: clamp(1.85rem, 7.4vw, 2.35rem); margin-bottom: 18px; }
+    .home-hero__lead { font-size: 1rem; line-height: 1.55; margin-bottom: 26px; max-width: 100%; }
+    .home-hero__benefits {
+        flex-direction: column; gap: 0;
+        margin-bottom: 30px;
+        border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .home-hero__benefits li {
+        font-size: .98rem;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(255,255,255,.08);
+        width: 100%;
+    }
+    .home-hero__benefits i { width: 40px; height: 40px; font-size: 1.05rem; }
+    .home-hero__actions { flex-direction: column; align-items: stretch; gap: 12px; }
+    .home-hero__btn { width: 100%; padding: 16px 22px; font-size: 1rem; }
 }
