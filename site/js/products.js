@@ -34,7 +34,7 @@ TP.products = [
         name: "Pantalón Gregori 12oz",
         cat: "pantalones",
         badge: "Bajo pedido", badgeClass: "badge--navy",
-        img: "",
+        img: "img/galeria/p12-1.webp",
         blurb: "La misma calidad Gregori en una versión más ligera (12oz, 100% algodón). Disponible bajo pedido.",
         meta: "Tallas 28–36 · extras 38+",
         price: "Desde $10", priceNote: "por mayor · $14 unitario",
