@@ -63,17 +63,6 @@ TP.products = [
         msg: "Hola, me interesa la Camisa Industrial Mistral con reflectivo. ¿Me ayudan con tallas y precio por mayor?"
     },
     {
-        slug: "camisetas-buzos.html",
-        name: "Camisetas y Buzos",
-        cat: "camisetas",
-        badge: "Nueva línea", badgeClass: "badge--navy",
-        img: "img/galeria/buzojersey-1.webp",
-        blurb: "Camisetas y buzos en tela jersey y polo piqué. Opción con capucha y cinta reflectiva. Ideales para personalizar.",
-        meta: "Tallas 36–42",
-        price: "Desde $6", priceNote: "por prenda",
-        msg: "Hola, me interesan las Camisetas y Buzos. ¿Me ayudan con modelos, tallas y precios?"
-    },
-    {
         slug: "camiseta-jersey.html",
         name: "Camiseta Tela Jersey",
         cat: "camisetas",
@@ -136,7 +125,7 @@ TP.products = [
         img: "img/galeria/chalecoazul-1.webp",
         blurb: "Chaleco azul marino en tela antifluidos que repele el agua, con cinta reflectiva amarilla de alta visibilidad. Ideal para personal de exteriores y seguridad.",
         meta: "Tallas S · M · L · XL",
-        price: "Cotización", priceNote: "consulta por mayor",
+        price: "Desde $14", priceNote: "por mayor · $15 unitario",
         msg: "Hola, me interesa el Chaleco Antifluidos Reflectivo Azul. ¿Me ayudan con tallas y precio?"
     },
     {
@@ -147,7 +136,7 @@ TP.products = [
         img: "img/galeria/chalecorojo-1.webp",
         blurb: "Chaleco rojo en tela gabardina resistente, con doble cinta reflectiva amarilla. Diseñado para seguridad industrial y trabajos de alta visibilidad.",
         meta: "Tallas S · M · L · XL",
-        price: "Cotización", priceNote: "consulta por mayor",
+        price: "Desde $14", priceNote: "por mayor · $15 unitario",
         msg: "Hola, me interesa el Chaleco Gabardina Reflectivo Rojo. ¿Me ayudan con tallas y precio?"
     },
     {

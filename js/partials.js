@@ -181,7 +181,7 @@ TP.nav = [
                     '<li><a href="camisa-industrial-mistral.html">Camisa Industrial Mistral</a></li>' +
                     '<li><a href="chaleco-antifluidos-azul.html">Chaleco Antifluidos Azul</a></li>' +
                     '<li><a href="chaleco-gabardina-rojo.html">Chaleco Gabardina Rojo</a></li>' +
-                    '<li><a href="camisetas-buzos.html">Camisetas y Buzos</a></li>' +
+                    '<li><a href="camiseta-jersey.html">Camisetas y Buzos Jersey</a></li>' +
                     '<li><a href="uniformes-industriales.html">Uniformes Industriales</a></li>' +
                 '</ul></div>' +
                 '<div><h4>Empresa</h4><ul>' +
