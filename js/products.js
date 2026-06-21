@@ -59,7 +59,7 @@ TP.products = [
         img: "img/galeria/camisa-1.webp",
         blurb: "Tela Mistral 7.5oz 100% algodón sanforizada (no encoge), proceso stone y cinta reflectiva AAA para seguridad.",
         meta: "Tallas XS–XXXL",
-        price: "Desde $12", priceNote: "por mayor · $14 unitario",
+        price: "Desde $13", priceNote: "por mayor · $15 unitario",
         msg: "Hola, me interesa la Camisa Industrial Mistral con reflectivo. ¿Me ayudan con tallas y precio por mayor?"
     },
     {
@@ -107,14 +107,25 @@ TP.products = [
         msg: "Hola, me interesa la Camiseta Polo Piqué. ¿Me ayudan con tallas y precio?"
     },
     {
-        slug: "buzo-capucha.html",
-        name: "Buzo con Capucha",
+        slug: "buzo-jersey.html",
+        name: "Buzo Tela Jersey",
         cat: "camisetas",
-        badge: "Con reflectivo", badgeClass: "badge--navy",
-        img: "img/galeria/buzocapucha-1.webp",
-        blurb: "Buzo manga larga con capucha en tela jersey, cinta reflectiva incluida. Cómodo y resistente, ideal para personalizar y para clima fresco.",
+        badge: "Personalizable", badgeClass: "badge--navy",
+        img: "img/galeria/buzojersey-1.webp",
+        blurb: "Buzo manga larga en tela jersey, cómodo y resistente. Base ideal para personalizar con bordado, capucha o cinta reflectiva.",
         meta: "Tallas 36–42",
-        price: "Desde $11", priceNote: "por prenda · con reflectivo",
+        price: "Desde $8", priceNote: "por prenda · +$1 capucha o reflectivo",
+        msg: "Hola, me interesa el Buzo en tela jersey. ¿Me ayudan con tallas y precio?"
+    },
+    {
+        slug: "buzo-capucha.html",
+        name: "Buzo Jersey con Capucha",
+        cat: "camisetas",
+        badge: "Con capucha", badgeClass: "badge--navy",
+        img: "img/galeria/buzocapucha-1.webp",
+        blurb: "Buzo manga larga con capucha en tela jersey. Cómodo y resistente, ideal para clima fresco y personalización con bordado.",
+        meta: "Tallas 36–42",
+        price: "Desde $9", priceNote: "por prenda · +$1 reflectivo",
         msg: "Hola, me interesa el Buzo con Capucha. ¿Me ayudan con tallas y precio?"
     },
     {
