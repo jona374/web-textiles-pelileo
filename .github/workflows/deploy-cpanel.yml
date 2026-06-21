@@ -1,0 +1,38 @@
+name: Desplegar a hosting (cPanel por FTP)
+
+# Publica automáticamente la carpeta site/ en tu hosting cada vez
+# que se hace push a la rama main, o manualmente desde la pestaña Actions.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - '.github/workflows/deploy-cpanel.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Subir site/ al hosting por FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # Carpeta del repo que se publica (con la barra final)
+          local-dir: ./site/
+          # Carpeta del hosting donde vive el sitio (con la barra final).
+          # En la mayoría de cPanel es public_html/. Si tu dominio usa un
+          # subdirectorio, cámbialo por ej: public_html/textilespelileo.com/
+          server-dir: ${{ vars.FTP_SERVER_DIR || 'public_html/' }}
+          # Borra del hosting lo que ya no exista en el repo (espejo exacto).
+          # Protege archivos que no quieras que toque el deploy:
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.htaccess
+            **/cgi-bin/**
