@@ -1,2 +1,5 @@
 # Artefactos de despliegue (se regeneran, no se versionan)
 *.zip
+
+# Archivos de diagnóstico/prueba (no forman parte del sitio publicable)
+prueba-*.html
