@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Textiles Pelileo — Catálogo de Ropa de Trabajo</title>
+<style>
+  @page { size: A4 portrait; margin: 0; }
+
+  :root{
+    --navy:#0B1F3A;
+    --navy-2:#0E2A4E;
+    --brass:#E8A93A;
+    --cream:#F4EFE6;
+    --cream-2:#EAE2D5;
+    --ink:#16202E;
+    --muted:#6C7787;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html,body{
+    background:#8a8a8a;
+    font-family:"Archivo","Liberation Sans",sans-serif;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .page{
+    position:relative;
+    width:210mm;
+    height:296.9mm;
+    overflow:hidden;
+    background:var(--cream);
+    page-break-after:always;
+    break-after:page;
+  }
+  .page:last-child{ page-break-after:auto; break-after:auto; }
+
+  @media screen{
+    body{ padding:14mm 0; }
+    .page{ margin:0 auto 10mm; box-shadow:0 6px 30px rgba(0,0,0,.35); }
+  }
+
+  .navy{ background:var(--navy); color:#fff; }
+
+  /* ---------- type ---------- */
+  .display{
+    font-family:"Barlow Condensed","Liberation Sans Narrow",sans-serif;
+    font-weight:700;
+    text-transform:uppercase;
+    line-height:.88;
+    letter-spacing:-.005em;
+  }
+  .eyebrow{
+    font-family:"Barlow Condensed",sans-serif;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.34em;
+    font-size:8.2pt;
+    color:var(--brass);
+  }
+  .eyebrow.dark{ color:#A8794F; }
+  .body{
+    font-size:9.6pt;
+    line-height:1.62;
+    color:#3A4756;
+  }
+  .rule{ height:2px; background:var(--brass); border:0; }
+  .hair{ height:1px; background:rgba(255,255,255,.16); border:0; }
+  .hair.dark{ background:rgba(11,31,58,.14); }
+
+  /* ---------- folio ---------- */
+  .folio{
+    position:absolute; bottom:11mm;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:8pt; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--muted);
+  }
+  .folio.l{ left:16mm; } .folio.r{ right:16mm; }
+  .folio.light{ color:rgba(255,255,255,.42); }
+
+  /* =========== P1 COVER =========== */
+  .cover{ padding:16mm; display:flex; flex-direction:column; }
+  .cover-logo{ height:12mm; width:auto; }
+  .cover-head{ display:flex; justify-content:space-between; align-items:flex-start; }
+  .cover-year{
+    font-family:"Barlow Condensed",sans-serif; font-weight:600;
+    font-size:9pt; letter-spacing:.3em; color:var(--brass);
+    text-transform:uppercase; padding-top:3mm;
+  }
+  .cover-mid{ flex:1; display:flex; align-items:center; gap:8mm; margin-top:9mm; }
+  .cover-copy{ width:70mm; flex:none; }
+  .cover-copy h1{ font-size:36.5pt; color:#fff; }
+  .cover-copy h1 em{ font-style:normal; color:var(--brass); display:block; }
+  .cover-shot{
+    flex:1; height:158mm; overflow:hidden;
+    border:1px solid rgba(232,169,58,.34);
+  }
+  .cover-shot img{ width:100%; height:100%; object-fit:cover; object-position:50% 22%; }
+  .cover-foot{ display:flex; justify-content:space-between; align-items:flex-end; }
+  .slogan{
+    font-family:"Barlow Condensed",sans-serif; font-weight:500;
+    font-size:15pt; color:#fff; letter-spacing:.02em;
+  }
+  .cover-meta{
+    font-size:7.8pt; letter-spacing:.12em; text-transform:uppercase;
+    color:rgba(255,255,255,.55); text-align:right; line-height:1.9;
+  }
+
+  /* =========== P2 NOSOTROS =========== */
+  .nos-shot{ height:150mm; width:100%; overflow:hidden; }
+  .nos-shot img{ width:100%; height:100%; object-fit:cover; object-position:50% 58%; }
+  .nos-body{ padding:13mm 16mm 0; display:flex; gap:11mm; }
+  .nos-left{ width:52mm; flex:none; }
+  .nos-left h2{ font-size:27pt; color:var(--navy); margin-top:4mm; }
+  .nos-right{ flex:1; }
+  .nos-right p{ margin-bottom:3.6mm; }
+  .nos-right p:first-child{
+    font-size:11.4pt; line-height:1.5; color:var(--navy);
+    font-weight:500;
+  }
+
+  /* =========== P3 ÍNDICE =========== */
+  .idx{ padding:18mm 16mm 0; }
+  .idx h2{ font-size:31pt; color:#fff; margin:3mm 0 1.5mm; }
+  .idx-sub{ font-size:9.2pt; color:rgba(255,255,255,.6); max-width:96mm; line-height:1.6; }
+  .idx-grid{
+    margin-top:10mm; display:grid; grid-template-columns:1fr 1fr;
+    gap:7mm 8mm;
+  }
+  .idx-card{ }
+  .idx-thumb{ height:79mm; overflow:hidden; background:#EAE7E3; }
+  .idx-thumb img{ width:100%; height:100%; object-fit:cover; }
+  .idx-meta{ display:flex; justify-content:space-between; align-items:baseline; margin-top:3.4mm; }
+  .idx-name{
+    font-family:"Barlow Condensed",sans-serif; font-weight:600;
+    text-transform:uppercase; font-size:12.6pt; color:#fff; letter-spacing:.03em;
+  }
+  .idx-pg{
+    font-family:"Barlow Condensed",sans-serif; font-weight:700;
+    font-size:12.6pt; color:var(--brass);
+  }
+  .idx-fab{ font-size:7.6pt; color:rgba(255,255,255,.5); letter-spacing:.1em; text-transform:uppercase; margin-top:.8mm; }
+
+  /* =========== P4-7 PRODUCTO =========== */
+  .pr{ display:flex; flex-direction:column; }
+  .pr-top{ padding:15mm 16mm 0; }
+  .pr-top h2{ font-size:34pt; color:var(--navy); margin:3mm 0 0; }
+  .pr-specs{
+    display:flex; gap:7mm; margin-top:4mm; align-items:baseline;
+    font-family:"Barlow Condensed",sans-serif; text-transform:uppercase;
+    font-size:9.4pt; letter-spacing:.13em; color:var(--navy);
+  }
+  .pr-specs span b{ color:#96774A; font-weight:600; }
+  .pr-stage{
+    flex:1 1 0; min-height:0; margin-top:8mm; position:relative;
+    background:#EAE7E3;
+  }
+  .pr-frame{ position:absolute; inset:0; overflow:hidden; }
+  .pr-frame img{ width:100%; height:100%; object-fit:cover; }
+  .pr-inset{
+    position:absolute; right:16mm; bottom:-14mm;
+    width:46mm; height:46mm; overflow:hidden;
+    border:3px solid var(--cream);
+  }
+  .pr-inset img{ width:100%; height:100%; object-fit:cover; }
+  .pr-bottom{ padding:20mm 16mm 0; height:56mm; }
+  .pr-feats{ display:flex; gap:6mm; width:118mm; }
+  .feat{ flex:1; }
+  .feat .n{
+    font-family:"Barlow Condensed",sans-serif; font-weight:700;
+    font-size:8.4pt; color:var(--brass); letter-spacing:.1em;
+  }
+  .feat .t{
+    margin-top:1.6mm; font-size:8.6pt; line-height:1.45; color:#3A4756;
+  }
+  .feat hr{ border:0; height:1px; background:rgba(11,31,58,.16); margin-top:2.2mm; }
+
+  /* =========== P8 BORDADO =========== */
+  .bd{ padding:16mm 16mm 0; height:100%; display:flex; flex-direction:column; }
+  .bd h2{ font-size:31pt; color:#fff; margin:3mm 0 4mm; }
+  .bd-lead{ font-size:9.6pt; line-height:1.62; color:rgba(255,255,255,.72); width:104mm; }
+  .bd-hero{ height:104mm; margin-top:9mm; overflow:hidden; }
+  .bd-hero img{ width:100%; height:100%; object-fit:cover; object-position:50% 42%; }
+  .bd-row{ display:flex; gap:6mm; margin-top:7mm; flex:1; }
+  .bd-cell{ flex:1; display:flex; flex-direction:column; }
+  .bd-cell .im{ height:59mm; overflow:hidden; }
+  .bd-cell .im img{ width:100%; height:100%; object-fit:cover; }
+  .bd-cell .cap{
+    margin-top:2.8mm; font-size:8pt; line-height:1.5; color:rgba(255,255,255,.6);
+  }
+  .bd-cell .cap b{
+    display:block; color:var(--brass); font-family:"Barlow Condensed",sans-serif;
+    text-transform:uppercase; letter-spacing:.12em; font-size:8.4pt; margin-bottom:1mm;
+  }
+
+  /* =========== P9 PROCESO =========== */
+  .pc{ padding:18mm 16mm 0; }
+  .pc h2{ font-size:31pt; color:var(--navy); margin:3mm 0 4mm; }
+  .pc-lead{ font-size:9.6pt; line-height:1.62; color:#4A5666; width:104mm; }
+  .steps{ margin-top:14mm; }
+  .step{ display:flex; gap:9mm; padding:8mm 0; border-top:1px solid rgba(11,31,58,.14); }
+  .step:last-child{ border-bottom:1px solid rgba(11,31,58,.14); }
+  .step-n{
+    font-family:"Barlow Condensed",sans-serif; font-weight:700;
+    font-size:30pt; line-height:.8; color:var(--brass); width:16mm; flex:none;
+  }
+  .step-b h3{
+    font-family:"Barlow Condensed",sans-serif; font-weight:600;
+    text-transform:uppercase; font-size:15pt; color:var(--navy);
+    letter-spacing:.04em; line-height:1;
+  }
+  .step-b p{ margin-top:2.4mm; font-size:9pt; line-height:1.58; color:#4A5666; width:118mm; }
+  .pc-band{
+    position:absolute; left:0; right:0; bottom:0; height:62mm;
+    background:var(--navy); color:#fff; padding:13mm 16mm 0;
+  }
+  .pc-band .t{
+    font-family:"Barlow Condensed",sans-serif; font-weight:600; text-transform:uppercase;
+    letter-spacing:.28em; font-size:8pt; color:var(--brass); margin-bottom:7mm;
+  }
+  .pc-band ul{ display:flex; gap:7mm; list-style:none; }
+  .pc-band li{ flex:1; }
+  .pc-band li b{
+    display:block; font-family:"Barlow Condensed",sans-serif; font-weight:600;
+    text-transform:uppercase; font-size:11.4pt; letter-spacing:.03em; color:#fff;
+    line-height:1.1; margin-bottom:2mm;
+  }
+  .pc-band li span{ font-size:8pt; line-height:1.5; color:rgba(255,255,255,.58); }
+
+  /* =========== P10 CIERRE =========== */
+  .cl{ display:flex; flex-direction:column; }
+  .cl-shot{ width:140mm; height:112mm; overflow:hidden; margin:16mm 0 0 16mm; }
+  .cl-send{
+    margin-top:9mm; display:flex; gap:6mm; padding-top:5mm;
+    border-top:1px solid rgba(255,255,255,.16); width:150mm;
+  }
+  .cl-send div{ flex:1; }
+  .cl-send .k{
+    font-family:"Barlow Condensed",sans-serif; font-weight:600; text-transform:uppercase;
+    font-size:8.6pt; letter-spacing:.16em; color:var(--brass); margin-bottom:1.4mm;
+  }
+  .cl-send .v{ font-size:8pt; line-height:1.45; color:rgba(255,255,255,.6); }
+  .cl-shot img{ width:100%; height:100%; object-fit:cover; object-position:50% 40%; }
+  .cl-body{ flex:1; padding:11mm 16mm 0; display:flex; flex-direction:column; }
+  .cl-body h2{ font-size:32pt; color:#fff; margin:3mm 0 4mm; }
+  .cl-body p{ font-size:9.8pt; line-height:1.62; color:rgba(255,255,255,.72); width:108mm; }
+  .cta{
+    margin-top:10mm; display:inline-flex; align-items:center; gap:4mm;
+    background:var(--brass); color:var(--navy);
+    padding:5.5mm 9mm; align-self:flex-start;
+  }
+  .cta .k{
+    font-family:"Barlow Condensed",sans-serif; font-weight:600; font-size:8pt;
+    letter-spacing:.24em; text-transform:uppercase; opacity:.72;
+  }
+  .cta .v{
+    font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:20pt;
+    line-height:1; letter-spacing:.01em;
+  }
+  .cl-foot{
+    margin-top:auto; padding-bottom:14mm;
+    display:flex; justify-content:space-between; align-items:flex-end;
+  }
+  .cl-foot img{ height:11mm; }
+  .cl-contact{ text-align:right; font-size:8.4pt; line-height:1.85; color:rgba(255,255,255,.6); }
+  .cl-contact b{ color:#fff; font-weight:500; }
+</style>
+</head>
+<body>
+
+<!-- ============ 1 · PORTADA ============ -->
+<section class="page navy cover">
+  <div class="cover-head">
+    <img class="cover-logo" src="assets/logo-light.png" alt="Textiles Pelileo">
+    <div class="cover-year">Catálogo 2026</div>
+  </div>
+
+  <div class="cover-mid">
+    <div class="cover-copy">
+      <div class="eyebrow" style="margin-bottom:6mm">Pelileo · Ecuador</div>
+      <h1 class="display">Ropa de<br>trabajo<em>Uniformes<br>industriales</em></h1>
+      <hr class="rule" style="width:26mm;margin-top:7mm">
+    </div>
+    <div class="cover-shot">
+      <img src="assets/cover-trabajador.jpg" alt="Trabajador con uniforme Textiles Pelileo">
+    </div>
+  </div>
+
+  <div class="cover-foot">
+    <div class="slogan">“Calidad que viste tu empresa”</div>
+    <div class="cover-meta">
+      Fabricación directa<br>textilespelileo.com
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2 · QUIÉNES SOMOS ============ -->
+<section class="page">
+  <div class="nos-shot"><img src="assets/taller.jpg" alt="Taller de producción Textiles Pelileo"></div>
+  <div class="nos-body">
+    <div class="nos-left">
+      <div class="eyebrow dark">Quiénes somos</div>
+      <h2 class="display">Taller<br>propio</h2>
+      <hr class="rule" style="width:18mm;margin-top:6mm">
+    </div>
+    <div class="nos-right body">
+      <p>En Pelileo, Tungurahua, el jean no es una industria: es un oficio heredado. A esta ciudad se la conoce como la capital del jean del Ecuador, y es aquí donde cortamos, cosemos y terminamos cada prenda.</p>
+      <p>Textiles Pelileo es un taller propio. Fabricamos directo, sin intermediarios: la empresa que compra habla con quien produce.</p>
+      <p>Trabajamos con telas certificadas Gregori y Mistral, confirmamos talla y muestra antes de producir en serie, y bordamos el logo de cada cliente sobre la prenda terminada.</p>
+      <p>Uniformamos cuadrillas de construcción, plantas industriales y equipos de campo en todo el país.</p>
+    </div>
+  </div>
+  <div class="folio l">Textiles Pelileo</div>
+  <div class="folio r">02</div>
+</section>
+
+<!-- ============ 3 · ÍNDICE ============ -->
+<section class="page navy">
+  <div class="idx">
+    <div class="eyebrow">Índice</div>
+    <h2 class="display">Líneas de<br>producto</h2>
+    <p class="idx-sub">Cuatro prendas base. Todas se fabrican bajo pedido, en tallas completas y con bordado del logo de su empresa.</p>
+
+    <div class="idx-grid">
+      <div class="idx-card">
+        <div class="idx-thumb"><img src="assets/pantalon-thumb.jpg" alt="Pantalón de trabajo"></div>
+        <div class="idx-meta"><div class="idx-name">Pantalón de trabajo</div><div class="idx-pg">04</div></div>
+        <div class="idx-fab">Denim Gregori / Mistral</div>
+      </div>
+      <div class="idx-card">
+        <div class="idx-thumb"><img src="assets/camisa-thumb.jpg" alt="Camisa de trabajo"></div>
+        <div class="idx-meta"><div class="idx-name">Camisa de trabajo</div><div class="idx-pg">05</div></div>
+        <div class="idx-fab">Denim Mistral</div>
+      </div>
+      <div class="idx-card">
+        <div class="idx-thumb"><img src="assets/polo-thumb.jpg" alt="Camisa polo"></div>
+        <div class="idx-meta"><div class="idx-name">Camisa polo</div><div class="idx-pg">06</div></div>
+        <div class="idx-fab">Tela piqué</div>
+      </div>
+      <div class="idx-card">
+        <div class="idx-thumb"><img src="assets/buzo-thumb.jpg" alt="Buzo con capucha"></div>
+        <div class="idx-meta"><div class="idx-name">Buzo con capucha</div><div class="idx-pg">07</div></div>
+        <div class="idx-fab">Tela jersey</div>
+      </div>
+    </div>
+  </div>
+  <div class="folio l light">Textiles Pelileo</div>
+  <div class="folio r light">03</div>
+</section>
+
+<!-- ============ 4 · PANTALÓN ============ -->
+<section class="page pr">
+  <div class="pr-top">
+    <div class="eyebrow dark">Línea 01</div>
+    <h2 class="display">Pantalón<br>de trabajo</h2>
+    <div class="pr-specs">
+      <span><b>Tela</b> &nbsp;Denim Gregori / Mistral</span>
+      <span><b>Tallas</b> &nbsp;26 a 46</span>
+    </div>
+  </div>
+  <div class="pr-stage">
+    <div class="pr-frame"><img src="assets/pantalon-hero.jpg" alt="Pantalón de trabajo en denim"></div>
+    <div class="pr-inset"><img src="assets/pantalon-detalle.jpg" alt="Detalle de costura y tela"></div>
+  </div>
+  <div class="pr-bottom">
+    <div class="pr-feats">
+      <div class="feat"><div class="n">01</div><div class="t">Costuras reforzadas</div><hr></div>
+      <div class="feat"><div class="n">02</div><div class="t">Cinta reflectiva en piernas</div><hr></div>
+      <div class="feat"><div class="n">03</div><div class="t">Bolsillos extra con tapa</div><hr></div>
+      <div class="feat"><div class="n">04</div><div class="t">Bordado del logo de su empresa</div><hr></div>
+    </div>
+  </div>
+  <div class="folio l">Pantalón de trabajo</div>
+  <div class="folio r">04</div>
+</section>
+
+<!-- ============ 5 · CAMISA ============ -->
+<section class="page pr">
+  <div class="pr-top">
+    <div class="eyebrow dark">Línea 02</div>
+    <h2 class="display">Camisa<br>de trabajo</h2>
+    <div class="pr-specs">
+      <span><b>Tela</b> &nbsp;Denim Mistral</span>
+      <span><b>Tallas</b> &nbsp;S a XXL</span>
+    </div>
+  </div>
+  <div class="pr-stage">
+    <div class="pr-frame"><img src="assets/camisa-hero.jpg" alt="Camisa de trabajo en denim"></div>
+    <div class="pr-inset"><img src="assets/camisa-detalle.jpg" alt="Detalle de bolsillo con tapa y cinta reflectiva"></div>
+  </div>
+  <div class="pr-bottom">
+    <div class="pr-feats">
+      <div class="feat"><div class="n">01</div><div class="t">Manga larga</div><hr></div>
+      <div class="feat"><div class="n">02</div><div class="t">Cinta reflectiva en brazos</div><hr></div>
+      <div class="feat"><div class="n">03</div><div class="t">Bolsillo frontal con tapa</div><hr></div>
+      <div class="feat"><div class="n">04</div><div class="t">Bordado del logo de su empresa</div><hr></div>
+    </div>
+  </div>
+  <div class="folio l">Camisa de trabajo</div>
+  <div class="folio r">05</div>
+</section>
+
+<!-- ============ 6 · POLO ============ -->
+<section class="page pr">
+  <div class="pr-top">
+    <div class="eyebrow dark">Línea 03</div>
+    <h2 class="display">Camisa<br>polo</h2>
+    <div class="pr-specs">
+      <span><b>Tela</b> &nbsp;Piqué</span>
+      <span><b>Tallas</b> &nbsp;S a XXL</span>
+    </div>
+  </div>
+  <div class="pr-stage">
+    <div class="pr-frame"><img src="assets/polo-hero.jpg" alt="Camisa polo en tela piqué"></div>
+    <div class="pr-inset"><img src="assets/polo-detalle.jpg" alt="Detalle de cuello tejido y tela piqué"></div>
+  </div>
+  <div class="pr-bottom">
+    <div class="pr-feats">
+      <div class="feat"><div class="n">01</div><div class="t">Cuello y puños tejidos</div><hr></div>
+      <div class="feat"><div class="n">02</div><div class="t">Tela transpirable</div><hr></div>
+      <div class="feat"><div class="n">03</div><div class="t">Uso institucional y de oficina</div><hr></div>
+      <div class="feat"><div class="n">04</div><div class="t">Bordado del logo de su empresa</div><hr></div>
+    </div>
+  </div>
+  <div class="folio l">Camisa polo</div>
+  <div class="folio r">06</div>
+</section>
+
+<!-- ============ 7 · BUZO ============ -->
+<section class="page pr">
+  <div class="pr-top">
+    <div class="eyebrow dark">Línea 04</div>
+    <h2 class="display">Buzo con<br>capucha</h2>
+    <div class="pr-specs">
+      <span><b>Tela</b> &nbsp;Jersey</span>
+      <span><b>Tallas</b> &nbsp;S a XXL</span>
+    </div>
+  </div>
+  <div class="pr-stage">
+    <div class="pr-frame"><img src="assets/buzo-hero.jpg" alt="Buzo con capucha en tela jersey"></div>
+    <div class="pr-inset"><img src="assets/buzo-detalle.jpg" alt="Detalle de capucha"></div>
+  </div>
+  <div class="pr-bottom">
+    <div class="pr-feats">
+      <div class="feat"><div class="n">01</div><div class="t">Capucha con cordón ajustable</div><hr></div>
+      <div class="feat"><div class="n">02</div><div class="t">Bolsillo canguro frontal</div><hr></div>
+      <div class="feat"><div class="n">03</div><div class="t">Tela jersey</div><hr></div>
+      <div class="feat"><div class="n">04</div><div class="t">Bordado del logo de su empresa</div><hr></div>
+    </div>
+  </div>
+  <div class="folio l">Buzo con capucha</div>
+  <div class="folio r">07</div>
+</section>
+
+<!-- ============ 8 · PERSONALIZACIÓN ============ -->
+<section class="page navy">
+  <div class="bd">
+    <div class="eyebrow">Personalización</div>
+    <h2 class="display">Su logo,<br>bordado</h2>
+    <p class="bd-lead">Bordamos el logo de su empresa sobre la prenda terminada: pecho, espalda o manga. Antes de producir en serie, confirmamos con usted la talla y una muestra física.</p>
+
+    <div class="bd-hero"><img src="assets/bordado-hero.jpg" alt="Camisa de trabajo con logo bordado"></div>
+
+    <div class="bd-row">
+      <div class="bd-cell">
+        <div class="im"><img src="assets/bordado-cerca.jpg" alt="Bordado en primer plano"></div>
+        <div class="cap"><b>Bordado en pecho</b>Hilo sobre el bolsillo, a la medida del logo entregado por el cliente.</div>
+      </div>
+      <div class="bd-cell">
+        <div class="im"><img src="assets/bordado-espalda.jpg" alt="Bordado en la espalda"></div>
+        <div class="cap"><b>Bordado en espalda</b>Formato ampliado para identificación de cuadrilla en obra.</div>
+      </div>
+    </div>
+  </div>
+  <div class="folio l light">Personalización</div>
+  <div class="folio r light">08</div>
+</section>
+
+<!-- ============ 9 · PROCESO ============ -->
+<section class="page">
+  <div class="pc">
+    <div class="eyebrow dark">Proceso de pedido</div>
+    <h2 class="display">Cómo<br>trabajamos</h2>
+    <p class="pc-lead">Cuatro pasos, sin intermediarios. Nada entra a producción en serie hasta que usted aprueba la talla y la muestra.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">01</div>
+        <div class="step-b">
+          <h3>Consulta</h3>
+          <p>Nos escribe por WhatsApp con la prenda, la cantidad estimada y el logo de su empresa.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">02</div>
+        <div class="step-b">
+          <h3>Cotización</h3>
+          <p>Preparamos la propuesta con telas, tallas y tiempos de entrega para su volumen.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">03</div>
+        <div class="step-b">
+          <h3>Confirmación de talla y muestra</h3>
+          <p>Enviamos una muestra física y confirmamos el escalado de tallas antes de cortar el pedido completo.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">04</div>
+        <div class="step-b">
+          <h3>Producción y envío nacional</h3>
+          <p>Producimos en nuestro taller de Pelileo y despachamos a todo el Ecuador con entrega planificada.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pc-band">
+    <div class="t">Lo que incluye trabajar con nosotros</div>
+    <ul>
+      <li><b>Tallas<br>completas</b><span>De 26 a 46 en pantalón. S a XXL en prendas superiores.</span></li>
+      <li><b>Telas<br>certificadas</b><span>Denim Gregori y Mistral, piqué y jersey.</span></li>
+      <li><b>Bordado<br>del logo</b><span>El logo de su empresa sobre la prenda terminada.</span></li>
+      <li><b>Envío<br>nacional</b><span>Despacho a todo el Ecuador con entrega planificada.</span></li>
+    </ul>
+  </div>
+
+  <div class="folio l light">Proceso de pedido</div>
+  <div class="folio r light">09</div>
+</section>
+
+<!-- ============ 10 · CONTRAPORTADA ============ -->
+<section class="page navy cl">
+  <div class="cl-shot"><img src="assets/cierre.jpg" alt="Camisa de trabajo Textiles Pelileo"></div>
+  <div class="cl-body">
+    <div class="eyebrow">Cotice su pedido</div>
+    <h2 class="display">Hablemos de<br>su uniforme</h2>
+    <p>Envíenos la prenda que necesita, la cantidad y el logo de su empresa. Le respondemos con una cotización y coordinamos la muestra.</p>
+
+    <div class="cta">
+      <div>
+        <div class="k">WhatsApp</div>
+        <div class="v">+593 98 663 4114</div>
+      </div>
+    </div>
+
+    <div class="cl-send">
+      <div><div class="k">Prenda</div><div class="v">Cuál de las cuatro líneas necesita.</div></div>
+      <div><div class="k">Cantidad</div><div class="v">Número de unidades estimado.</div></div>
+      <div><div class="k">Tallas</div><div class="v">Escalado por talla, si ya lo tiene.</div></div>
+      <div><div class="k">Logo</div><div class="v">Archivo del logo para el bordado.</div></div>
+    </div>
+
+    <div class="cl-foot">
+      <img src="assets/logo-light.png" alt="Textiles Pelileo">
+      <div class="cl-contact">
+        <b>textilespelileo.com</b><br>
+        Pelileo · Tungurahua · Ecuador<br>
+        Envío a nivel nacional
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
